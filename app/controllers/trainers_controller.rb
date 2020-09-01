@@ -1,6 +1,6 @@
 class TrainersController < ApplicationController
   def index
-    @trainers = User.where(trainers: true)
+    @trainers = User.where(trainer: true)
   end
 
   def show
