@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'trainers/index'
   get 'bookings/index'
   get 'bookings/show'
   get 'bookings/create'
