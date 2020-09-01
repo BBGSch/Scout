@@ -1,10 +1,15 @@
 <h1>Trainers#show</h1>
-<%= @training %>
+<%= @trainer %>
+<%#= @trainings %>
+<%= @trainer.name %>
+<%= @trainer.gender %>
+<%= @trainer.bio %>
+<%= @trainer.rating %>
 
+<ul>
+  <% @trainings.each do |training| %>
+  <li> <%= training.name %>
+  <%= link_to training.name, training_path(training) %></li>
+<% end %></ul>
 
-
-
-
-
-
-<!-- trainer/:id/trainings/:id -->
+<%= link_to "create new training", new_trainer_training_path(@trainer) %>
