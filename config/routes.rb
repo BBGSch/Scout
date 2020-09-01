@@ -1,29 +1,6 @@
+
 Rails.application.routes.draw do
-  get 'trainers/index'
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/create'
-  get 'bookings/destroy'
-  get 'training_sessions/index'
-  get 'training_sessions/show'
-  get 'training_sessions/new'
-  get 'training_sessions/create'
-  get 'training_sessions/edit'
-  get 'training_sessions/update'
-  get 'training_sessions/destroy'
-  get 'trainings/show'
-  get 'trainings/new'
-  get 'trainings/create'
-  get 'trainings/edit'
-  get 'trainings/update'
-  get 'trainings/destroy'
-  get 'users/index'
-  get 'users/show'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/destroy'
+
   devise_for :users
   root to: 'pages#home'
 
