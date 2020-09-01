@@ -11,10 +11,12 @@ class TrainingsController < ApplicationController
 
   def create
     @trainer = User.find(params[:trainer_id])
-    @training = Training.new
+    # applying the simple_form parameters to the new training
+    @training = @trainer.trainings.build(training_params)
     @training.user = @trainer
       if @training.save
-        redirect_to trainer_trainings_path
+        # route was pointing to index and not show
+        redirect_to trainer_training_path(@trainer, @training)
       else
         render :new
       end

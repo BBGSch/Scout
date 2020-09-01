@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :trainers do
-      resources :trainings, only: [ :index, :new, :create ]
+      resources :trainings, only: [ :show, :new, :create ]
   end
 
   resources :trainings, only: [ :show, :edit, :update, :destroy ] do
