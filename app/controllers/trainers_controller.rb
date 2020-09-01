@@ -4,6 +4,7 @@ class TrainersController < ApplicationController
   end
 
   def show
-
+    @trainer = User.find(params[:id])
+    @trainings = @trainer.trainings
   end
 end
