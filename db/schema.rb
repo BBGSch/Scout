@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_111841) do
+ActiveRecord::Schema.define(version: 2020_09_02_150016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2020_09_02_111841) do
   end
 
   create_table "training_sessions", force: :cascade do |t|
-    t.time "time"
     t.bigint "training_id", null: false
     t.integer "capacity"
     t.string "location"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_111841) do
     t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "time"
     t.index ["training_id"], name: "index_training_sessions_on_training_id"
   end
 
