@@ -4,34 +4,48 @@ class TrainingsController < ApplicationController
   end
 
   def new
-    @trainer = User.find(params[:trainer_id])
     @training = Training.new
-    # @training.user = User.find(params[:trainer_id])
+    @trainer = current_user
   end
 
   def create
-    @trainer = User.find(params[:trainer_id])
-    @training = Training.new
-    @training.user = @trainer
+    @trainer = current_user
+    @training = Training.new(training_params)
+    @training.user = current_user
       if @training.save
-        redirect_to trainer_trainings_path
+        redirect_to training_path(@training)
       else
         render :new
       end
   end
 
   def edit
+    @training = Training.find(params[:id])
+    @trainer = current_user
   end
 
   def update
+    @training = Training.find(params[:id])
+    @trainer = current_user
+    @training.update(training_params)
+    if @training.save
+      redirect_to training_path(@training), notice: 'Training was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
+    
+    @training = Training.find(params[:id])
+    @trainer = @training.user
+    @training.destroy
+    redirect_to trainer_path(@trainer)
   end
 
   private
 
   def training_params
-    params.require(:training).permit(:name, :description)
+    params.require(:training).permit(:name, :description, :user_id)
   end
 end

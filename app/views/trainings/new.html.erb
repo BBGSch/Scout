@@ -1,16 +1,9 @@
 <h1>Trainings#new</h1>
+<p>Find me in app/views/trainings/new.html.erb</p>
 
-<div class="container container-new">
-  <div class="row">
-    <div class="col-6">
-      <h1>create new training</h1>
-      <%= simple_form_for([@trainer, @training], url: trainer_trainings_path, method: :post) do |f|%>
-      <%= f.input :name, placeholder: "name" %>
-      <%= f.input :description, as: :text %>
-      <div class="text-right">
-        <%= f.submit class: "btn btn-primary" %></div>
-      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
-      <% end %>
-    </div>
-  </div>
-</div>
+
+
+<%= render 'formnew', training: @training %>
+
+<%= link_to 'Back', trainer_path(@trainer) %>
+ 
