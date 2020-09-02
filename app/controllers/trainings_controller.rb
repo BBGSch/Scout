@@ -14,7 +14,7 @@ class TrainingsController < ApplicationController
     @training = Training.new
     @training.user = @trainer
       if @training.save
-        redirect_to trainer_trainings_path
+        redirect_to trainer_trainings_path(@training)
       else
         render :new
       end

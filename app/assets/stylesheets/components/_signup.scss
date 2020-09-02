@@ -1,0 +1,15 @@
+.form-signup {
+  margin-top: 150px;
+}
+
+.form-signup input {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.btn.signup {
+  background-color: $blue;
+  &:hover {
+    background-color: #6fb0c1;
+  }
+}
