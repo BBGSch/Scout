@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 # if trainer
 
-  has_many :trainings
+  has_many :trainings, dependent: :destroy
   has_many :training_sessions, through: :trainings
   has_many :bookings, through: :training_sessions
 

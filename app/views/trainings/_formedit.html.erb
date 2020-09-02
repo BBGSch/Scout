@@ -1,0 +1,28 @@
+<div class="container container-new">
+  <div class="row">
+    <div class="col-6">
+
+
+
+
+      <%= simple_form_for(@training) do |f|%>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        
+        <div class="form-inputs">    
+          <%= f.input :name, placeholder: "name" %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :photo, as: :file %>
+        </div>
+      
+        <div class="form-actions">
+          <%= f.button :submit, class: "btn btn-primary" %>
+          <button class="btn btn-secondary"> 
+            <%= link_to 'Back', trainer_path(@trainer) %> 
+          </button>
+        </div>  
+      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
+      <% end %>
+    </div>
+  </div>
+</div>
