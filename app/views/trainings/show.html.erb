@@ -1,3 +1,10 @@
-<h1>Trainings#show</h1>
-<%= @training.name %>
-<%= @training.description %>
+<div class="container container-new">
+  <h1>Trainings#show</h1>
+  <%= @training.name %>
+  <%= @training.description %>
+
+  <button type="button" class="btn btn-warning">
+    <%= link_to "remove", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
+  </button>
+
+</div>

@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :trainings, only: [ :show, :edit, :update, :destroy ] do
-    resources :sessions, only: [ :index, :new, :create]
+    resources :training_sessions, only: [ :index, :new, :create]
   end
 
-  resources :sessions, only: [ :show, :edit, :update, :destroy ] do
+  resources :training_sessions, only: [ :show, :edit, :update, :destroy ] do
     resources :bookings, only: [ :create ]
   end
 
