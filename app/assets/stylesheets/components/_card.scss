@@ -1,0 +1,44 @@
+.card{
+  margin-left: 8px;
+  margin-right: 8px;
+  padding-top: 0;
+  background-size: cover;
+  height: 55vh;
+  width: 20vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "filler" "info";
+  overflow: hidden;
+  border-radius: 5px;
+  border: none;
+  transition: .3s ease;
+  box-shadow: 5px 5px 15px rgba(0,0,0,.2);
+}
+
+.card-img img{
+  width: inherit;
+}
+
+
+.card-info{
+  grid-area: "info";
+  color: white;
+  text-align: center;
+  padding: 5px;
+
+
+}
+
+.card:hover{
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 5px 5px 15px rgba(0,0,0,.4);
+  cursor: pointer;
+ // transform: rotate(2deg);
+}
+
+
+#center-card{
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 5px 5px 15px rgba(0,0,0,.4);
+}

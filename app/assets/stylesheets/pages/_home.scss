@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+
+.home-cards{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home-title{
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 50px;
+margin-top: 10vh;
+
+  img{
+    width: 300px;
+    opacity: .9;
+  }
+}
