@@ -27,28 +27,28 @@ crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2, descript
 puts crossfit1.name
 
 # new sessions
-calisthenics_session1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2020, 12, 8, 20, 0, 0) )
+calisthenics_session1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 8, 20, 0, 0, "+02:00") )
 puts calisthenics_session1.id
-calisthenics_session2 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2020, 12, 15, 20, 0, 0) )
+calisthenics_session2 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 15, 20, 0, 0, "+02:00") )
 puts calisthenics_session2.id
-calisthenics_session3 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2020, 12, 22, 20, 0, 0) )
+calisthenics_session3 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 22, 20, 0, 0, "+02:00") )
 puts calisthenics_session3.id
 
-crossfit_session1 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2020, 10, 8, 20, 0, 0) )
+crossfit_session1 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 8, 20, 0, 0, "+02:00") )
 puts crossfit_session1.id
-crossfit_session2 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2020, 10, 15, 20, 0, 0) )
+crossfit_session2 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 15, 20, 0, 0, "+02:00") )
 puts crossfit_session2.id
-crossfit_session3 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2020, 10, 22, 20, 0, 0) )
+crossfit_session3 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 22, 20, 0, 0, "+02:00") )
 puts crossfit_session3.id
 
 # old sessions
-calisthenics_sessionLY1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2019, 12, 8, 20, 0, 0) )
-calisthenics_sessionLY2 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2019, 12, 15, 20, 0, 0) )
-calisthenics_sessionLY3 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: Time.new(2019, 12, 22, 20, 0, 0) )
+calisthenics_sessionLY1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2019, 12, 8, 20, 0, 0, "+02:00") )
+calisthenics_sessionLY2 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2019, 12, 15, 20, 0, 0, "+02:00") )
+calisthenics_sessionLY3 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2019, 12, 22, 20, 0, 0, "+02:00") )
 
-crossfit_sessionLY1 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2019, 10, 8, 20, 0, 0) )
-crossfit_sessionLY2 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2019, 10, 15, 20, 0, 0) )
-crossfit_sessionLY3 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: Time.new(2019, 10, 22, 20, 0, 0) )
+crossfit_sessionLY1 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2019, 10, 8, 20, 0, 0, "+02:00") )
+crossfit_sessionLY2 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2019, 10, 15, 20, 0, 0, "+02:00") )
+crossfit_sessionLY3 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2019, 10, 22, 20, 0, 0, "+02:00") )
 
 # new bookings
 bookingfuture1 = Booking.create!(user_id: 3, training_session_id: 1, status: true)
