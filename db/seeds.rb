@@ -12,12 +12,27 @@ require "open-uri"
 
 simone = User.create(email: "user@example.com", password: "123ABC", name: "Simone Biles", age: "21", gender: "female", bio: "Hi, I am Simone. I have over 10 years of experience in gymnastics, yoga and calisthenics.", trainer: true)
 puts simone.name
-arnold = User.create(email: "user2@example.com", password: "123ABC", name: "Arnold Schwarzenegger", age: "71", gender: "male", bio: "Hi, I am Arnold. I have over 50 years of experience in calisthenics, crossfit and outdoor bootcamps.", trainer: true)
-puts arnold.name
+donny = User.create(email: "user2@example.com", password: "123ABC", name: "Donny Van De Beek", age: "71", gender: "male", bio: "Hi, I am Donny. I have over 50 years of experience in calisthenics, crossfit and outdoor bootcamps.", trainer: true)
+puts donny.name
 marieke = User.create(email: "user3@example.com", password: "123ABC", name: "Marieke Jansen", age: "21", gender: "female", trainer: false)
 puts marieke.name
 joop = User.create(email: "user4@example.com", password: "123ABC", name: "Joop Herema", age: "30", gender: "male", trainer: false)
 puts joop.name
+
+# user pics
+
+simonepic = URI.open('https://cdn.amomama.com/4ac49f8ca916f956ce084fcc6d4afcf0.jpeg?width=3000&height=2452')
+simone.photos.attach(io: simonepic, filename: 'simonepic.png', content_type: 'image/png')
+
+donnypic = URI.open('https://i.imgur.com/LbDUJDk_d.webp?maxwidth=728&fidelity=grand')
+donny.photos.attach(io: donnypic, filename: 'donnypic.png', content_type: 'image/png')
+
+mariekepic = URI.open('https://www.vriendin.nl/content/uploads/2020/02/Ontwerp-zonder-titel-97-1.png')
+marieke.photos.attach(io: mariekepic, filename: 'mariekepic.png', content_type: 'image/png')
+
+jooppic = URI.open('https://thedutchman.travel/wp-content/uploads/2016/05/The-Dutchman-Holland-Netherlands-Travelagent-DMC-At-your-service-IMG_5300-300x225.jpg')
+joop.photos.attach(io: jooppic, filename: 'jooppic.png', content_type: 'image/png')
+
 
 # trainings
 
@@ -25,6 +40,14 @@ calisthenics1 = Training.create(name: "calisthenics for beginners", user_id: 1, 
 puts calisthenics1.name
 crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2, description: "In this training, I will bring you up to speed with the core exercises in crossfit. Let's get fit")
 puts crossfit1.name
+
+# training pics
+calisthenics1pic = URI.open('https://schoolofcalisthenics.com/wp-content/uploads/2018/07/2018-06-11-PHOTO-00000059.jpg')
+calisthenics1.photos.attach(io: calisthenics1pic, filename: 'calisthenics1pic.png', content_type: 'image/png')
+
+crossfit1pic = URI.open('https://assets.website-files.com/581c85345d7e0501760aa7db/5afaa69dd0d7b74b5e418453_justyn-warner-532065-unsplash-(1).jpg')
+crossfit1.photos.attach(io: crossfit1pic, filename: 'crossfit1pic.png', content_type: 'image/png')
+
 
 # new sessions
 calisthenics_session1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 8, 20, 0, 0, "+02:00") )
