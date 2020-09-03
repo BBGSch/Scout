@@ -59,7 +59,7 @@ header {
   //background-image: linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .4));
   transform: skewY(-6deg);
   transform-origin: top left;
-  z-index: 10;
+  z-index: -1;
   opacity: 1;
 
 }
@@ -76,6 +76,6 @@ header {
   //background-image: linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .4));
   transform: skewY(6deg);
   transform-origin: top right;
-  z-index: 9;
+  z-index: -1;
   opacity: 1;
 }

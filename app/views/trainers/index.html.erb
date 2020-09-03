@@ -1,6 +1,33 @@
+<div class="search">
+  <form class="search_form" action=<%=trainers_path%> method="get">
+    <div>
+    <div class="search_bar">
+      <row>
+           <input id="city_search" type="text" size=20 placeholder="City" name="location"><input type="text" id="guests-index" size="10" placeholder="Guests" name="guests"><input type="submit" value="Find a Trainer" class="btn-ghost-index">
+      </row>
+      <br>
+      <row>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> Male</label>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> Female</label>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> Other</label>
+        <label for="vol">Age</label>
+        <input type="range" id="vol" name="vol" min="18" max="100">
+      </row>
+    </div>
+    </div>
+    <!-- <a class="btn-ghost" href="#">Find Boats</a> -->
+    </form>
+</div>
 
+<div class="trainers-results">
+  <%= link_to trainer_path(@trainers.first) do %>
+<%=render "trainer-search-card"%>
+<%end%>
+</div>
 
-<h1>Trainers#index</h1>
 <% @trainers.each do |trainer| %>
   <%= trainer.name %>
   <%= link_to trainer.name, trainer_path(trainer) %>

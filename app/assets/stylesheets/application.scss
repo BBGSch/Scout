@@ -13,10 +13,13 @@
 @import "components/card";
 @import "components/footer";
 @import "components/navbar";
+@import "components/search";
 @import "components/trainer-search-card";
 
 @import "pages/index";
 @import "pages/home";
+@import "pages/trainers-index";
+@import "pages/trainer-show";
 
 
 body{

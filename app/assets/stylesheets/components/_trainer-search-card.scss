@@ -1,0 +1,57 @@
+.search-card{
+  width: 60vw;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 60% 30% 10%;
+  grid-template-areas: "image" "text" "stats";
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px rgba(0,0,0,.4);
+  border: solid 5px white;
+}
+
+.search-card-image{
+  grid-area: "image";
+  width: inherit;
+  img{
+    width: inherit;
+    background-size:cover;
+  }
+}
+
+.search-card-infos{
+  grid-area: "text";
+  background-color: white;
+  padding: 5px;
+  color: rgba(0, 0, 0, .8);
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+.search-card-infos-titles{
+
+  h4{font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+
+}
+
+.search-card-infos-long{
+  padding-right: 10px;
+  padding-left: 15px;
+
+}
+
+.search-card-stats{
+    padding-left: 20px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.4);
+    grid-area: "stats";
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+}
