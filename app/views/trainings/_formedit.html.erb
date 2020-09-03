@@ -1,28 +1,37 @@
-<div class="container container-new">
+<div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-sm-offset-4">
 
 
-
-
-      <%= simple_form_for(@training) do |f|%>
+      <div class="form-edit">
+        <h2>Edit your training</h2>
+        <%= simple_form_for(@training) do |f|%>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        
-        <div class="form-inputs">    
+
+        <div class="form-inputs">
           <%= f.input :name, placeholder: "name" %>
           <%= f.input :description, as: :text %>
           <%= f.input :photo, as: :file %>
         </div>
-      
+
         <div class="form-actions">
           <%= f.button :submit, class: "btn btn-primary" %>
-          <button class="btn btn-secondary"> 
-            <%= link_to 'Back', trainer_path(@trainer) %> 
+          <button class="btn btn-secondary">
+            <%= link_to 'Back', trainer_path(@trainer) %>
           </button>
-        </div>  
-      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
-      <% end %>
+        </div>
+        <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
+        <% end %>
+      </div>
+    </div>
+    <div class="d-none d-md-block col-sm-4 col-md-6 col-lg-6">
+      <div class="image-wrapper">
+        <h2>
+          BE ALIVE, KEEP HEALTHY
+        </h2>
+          <%= image_tag "yoga_people.jpeg", class: "image-card" %>
+      </div>
     </div>
   </div>
 </div>

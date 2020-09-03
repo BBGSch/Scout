@@ -4,14 +4,9 @@
   <div class="row">
     <div class="col-6">
       <h1>create new session</h1>
-      <%= simple_form_for([@training, @session], url: training_sessions_path, method: :post) do |f|%>
-      <%= f.input :time %>
-      <%= f.input :capacity %>
-      <%= f.input :location %>
-      <div class="text-right">
-        <%= f.submit class: "btn btn-primary" %></div>
-      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
-      <% end %>
+      
+      <%= render 'formnew', training_session: @trainingsession %>
+
     </div>
   </div>
 </div>
