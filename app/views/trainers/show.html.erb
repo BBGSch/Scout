@@ -45,8 +45,10 @@
       <ul>
         <% @trainings.each do |training| %>
         <li>
-        <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt=""><br>
-        <%= link_to training.name, training_path(training) %></li>
+        <%= link_to training_path(training) do %>
+          <% render "components/trainer-trainings-card", training: training %>
+        <%end%>
+        </li>
         <% end %>
       </ul>
 

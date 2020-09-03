@@ -60,7 +60,7 @@ grid-template-areas: "day1" "day2";
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
+
   }
 
   .schedule-day-two{
@@ -80,16 +80,12 @@ grid-template-areas: "day1" "day2";
 
   ul{
     list-style-type: none;
-  }
-  ul li{
 
+    li{
+      width: 100%;
+    }
   }
-  width: 80%;
-  img{
-    max-width: 350px;
-    border-radius: 15px;
-    margin: 0 auto;
-  }
+
 }
 
 .profile-info{
