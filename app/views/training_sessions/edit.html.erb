@@ -1,16 +1,20 @@
-<div class="container container-new">
+<div class="container">
   <div class="row">
-    <div class="col-6">
-      <h1>TrainingSessions#edit</h1>
-      <p>Find me in app/views/training_sessions/edit.html.erb</p>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-sm-offset-4">
 
-
+      <div class="form-training">
+        <h1>Edit your session</h1>
       <%= render 'formedit', training_session: @trainingsession %>
 
     </div>
   </div>
+  <div class="d-none d-md-block col-sm-4 col-md-6 col-lg-6">
+      <div class="image-wrapper">
+        <h2>
+          Let's get sweaty!
+        </h2>
+        <%= image_tag "sportman.jpeg", class: "image-card" %>
+      </div>
+    </div>
 </div>
-
-
-
-
+</div>

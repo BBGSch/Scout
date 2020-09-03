@@ -1,0 +1,15 @@
+<%= simple_form_for([@trainer, @training], url: trainer_trainings_path(@trainer.id)) do |f|%>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="form-inputs">
+  <%= f.input :name, placeholder: "training name" %>
+  <%= f.input :description, as: :text, placeholder: "Let's get sweaty" %>
+  <%= f.input :photo, as: :file %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', trainer_path(@trainer), class: "btn" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>

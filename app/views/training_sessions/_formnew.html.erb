@@ -1,29 +1,15 @@
-<div class="container container-new">
-  <div class="row">
-    <div class="col-6">
+<%= simple_form_for(@trainingsession, url:  training_training_sessions_path(@training.id)) do |f|%>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
-
-
-      <%= simple_form_for(@trainingsession, url:  training_training_sessions_path(@training.id)) do |f|%>
-
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        
-        <div class="form-inputs">    
-          <%= f.input :location %>
-          <%= f.input :capacity %>
-          <%= f.input :time, as: :datetime, html5: true %>
-        </div>
-      
-        <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-primary" %>
-          <button class="btn btn-secondary"> 
-            <%= link_to 'Back', training_training_sessions_path(@training) %> 
-          </button>
-        </div>  
-      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
-      <% end %>
-    </div>
-  </div>
+<div class="form-inputs">
+  <%= f.input :location %>
+  <%= f.input :capacity %>
+  <%= f.input :time, as: :datetime, html5: true %>
 </div>
+
+<div class="form-actions">
+  <%= link_to 'Back', training_training_sessions_path(@training), class: "btn" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+</div>
+<% end %>

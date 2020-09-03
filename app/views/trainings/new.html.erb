@@ -1,1 +1,20 @@
-<%= render 'formnew', training: @training %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-sm-offset-4">
+
+        <div class="form-training">
+          <h2>Create new training</h2>
+          <%= render 'form', training: @training %>
+
+        </div>
+    </div>
+    <div class="d-none d-md-block col-sm-4 col-md-6 col-lg-6">
+      <div class="image-wrapper">
+        <h2>
+          do more & keep moving
+        </h2>
+          <%= image_tag "yoga_people.jpeg", class: "image-card" %>
+      </div>
+    </div>
+  </div>
+</div>
