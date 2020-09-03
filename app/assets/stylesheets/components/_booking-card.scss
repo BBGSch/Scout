@@ -1,6 +1,5 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -27,6 +26,26 @@
   margin-top: 8px;
 }
 
+#card-product {
+  border-radius: 10px;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.cards-grid {
+  // margin-top: 130px;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  min-height: 100vh;
+  grid-auto-flow: dense;
+  grid-auto-rows: 150px;
+  grid-gap: 15px;
+  top: 0;
+}
+
+h2 {
+padding-top: 80px;
+// bottom: 0;
 }

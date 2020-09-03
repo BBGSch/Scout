@@ -1,7 +1,11 @@
-<div class="card-product">
+<div id="card-product" class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
-    <h2>booking.session.training.name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
+    <h2><%= booking.training.name %></h2>
+        <p> <%= booking.training_session.time.strftime("%A, %b %d") %> </p>
+        <p> <%= booking.training_session.location %> </p>
+        <p>  <i class="far fa-check-circle"></i></p>
   </div>
 </div>
+
+<%#= booking.status %>
