@@ -1,4 +1,4 @@
-<h1>Trainers#show</h1>
+<!-- <h1>Trainers#show</h1>
 <%= @trainer %>
 <%#= @trainings %>
 <%= @trainer.name %>
@@ -11,5 +11,43 @@
   <li> <%= training.name %>
   <%= link_to training.name, training_path(training) %></li>
 <% end %></ul>
+ -->
 
-<%= link_to "create new training", new_trainer_training_path(@trainer) %>
+<div class="profile-column">
+  <div class="trainer-profile">
+    <div class="profile-image">
+
+    </div>
+    <div class="profile-headline">
+      <div>
+        <%= @trainer.name %> <%=@trainer.gender%>
+      </div>
+      <div>
+        <%= @trainer.rating %>
+      </div>
+    </div>
+    <div class="profile-schedule">
+      <div class="schedule-day-one">
+
+      </div>
+      <div class="schedule-day-two">
+
+      </div>
+    </div>
+    <div class="profile-classes">
+      <ul>
+        <% @trainings.each do |training| %>
+        <li>
+        <%= link_to training.name, training_path(training) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="profile-info">
+
+    </div>
+    <div class="profile-reviews">
+
+    </div>
+    <%= link_to "create new training", new_trainer_training_path(@trainer) %>
+  </div>
+</div>
