@@ -1,5 +1,5 @@
 class TrainingSessionsController < ApplicationController
-  
+
   def index
     @trainingsessions = TrainingSession.all
     @training = Training.find(params[:training_id])
@@ -42,7 +42,7 @@ class TrainingSessionsController < ApplicationController
     end
   end
 
-  def destroy    
+  def destroy
     @trainingsession = TrainingSession.find(params[:id])
     @training = @trainingsession.training
     @trainingsession.destroy
