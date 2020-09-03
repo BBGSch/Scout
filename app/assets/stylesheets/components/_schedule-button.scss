@@ -1,0 +1,23 @@
+.schedule-btn {
+  padding-top: 0;
+  border: none;
+  background-color: rgba(2, 62, 138, 1);
+  color: white;
+  width: 90%;
+  margin-left: 10px;
+  margin-left: 10px;
+  height: auto;
+  opacity: .6;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  text-transform: capitalize;
+  border-radius: 2px;
+}
+
+/* On mouse-over */
+.schedule-btn:hover {
+  opacity: 1;
+}
+
