@@ -2,8 +2,7 @@
   <div class="row">
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-sm-offset-4">
 
-
-      <div class="form-edit">
+      <div class="form-training">
         <h2>Edit your training</h2>
         <%= simple_form_for(@training) do |f|%>
         <%= f.error_notification %>
@@ -16,22 +15,20 @@
         </div>
 
         <div class="form-actions">
+          <%= link_to 'Back', trainer_path(@trainer), class: "btn" %>
           <%= f.button :submit, class: "btn btn-primary" %>
-          <button class="btn btn-secondary">
-            <%= link_to 'Back', trainer_path(@trainer) %>
-          </button>
         </div>
-        <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
         <% end %>
       </div>
     </div>
     <div class="d-none d-md-block col-sm-4 col-md-6 col-lg-6">
       <div class="image-wrapper">
         <h2>
-          BE ALIVE, KEEP HEALTHY
+          keep moving!
         </h2>
           <%= image_tag "yoga_people.jpeg", class: "image-card" %>
       </div>
     </div>
   </div>
 </div>
+
