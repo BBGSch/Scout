@@ -59,9 +59,11 @@
     </div>
     <div class="profile-reviews">
         <%=@trainer.rating%>
+        <div><%= render "reviews/list", reviews: @reviews %></div>
     </div>
     <%= link_to "create new training", new_trainer_training_path(@trainer) %>
   </div>
 </div>
 
 <div><%= render "training_sessions/map",  markers: @markers %></div>
+

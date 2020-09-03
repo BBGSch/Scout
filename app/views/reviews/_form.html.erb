@@ -1,0 +1,26 @@
+<div class="row review-section pt-3">
+    <div class="col-md-8">
+      <div class="well well-sm">
+            <div class="row" id="post-review-box">
+              <h5>Leave a Review</h5>
+                <div class="col-md-12">
+                    <%= simple_form_for [@booking, @review], wrapper: :horizontal_form do |f|%>
+
+
+                      <%= f.input :title, placeholder: "title" %>
+                      <%= f.input :stars, collection: 1..5 %>
+                      <%= f.input :description, as: :text %>
+                     <div class="text-right"> <%= f.submit class: "btn btn-primary" %></div>
+                        <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
+
+                        <div class="text-right">
+                          <div class="form-group text-center">
+                            <div id="stars_size<%= booking.id %>"></div>
+                          </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
