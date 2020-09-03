@@ -16,37 +16,44 @@
 <div class="profile-column">
   <div class="trainer-profile">
     <div class="profile-image">
-
+          <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="">
     </div>
     <div class="profile-headline">
       <div>
-        <%= @trainer.name %> <%=@trainer.gender%>
+        <%=@trainer.name %>, <%=@trainer.gender%>, <%=@trainer.age%>
       </div>
       <div>
-        <%= @trainer.rating %>
+        <%=@trainer.rating%> 5 stars
       </div>
     </div>
     <div class="profile-schedule">
       <div class="schedule-day-one">
-
+        <h4>TODAY</h4>
+        <%=@trainer.training_sessions.first.training.name%>
+        <%=@trainer.training_sessions.first.time%>
       </div>
       <div class="schedule-day-two">
-
+        <h4>TOMORROW</h4>
+        <%=@trainer.training_sessions.last.training.name%>
+        <%=@trainer.training_sessions.last.time%>
       </div>
     </div>
     <div class="profile-classes">
+      <h4>My Classes:</h4>
       <ul>
         <% @trainings.each do |training| %>
         <li>
+        <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt=""><br>
         <%= link_to training.name, training_path(training) %></li>
         <% end %>
       </ul>
     </div>
     <div class="profile-info">
-
+      <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
+      <%=@trainer.bio%>
     </div>
     <div class="profile-reviews">
-
+        <%=@trainer.rating%>
     </div>
     <%= link_to "create new training", new_trainer_training_path(@trainer) %>
   </div>

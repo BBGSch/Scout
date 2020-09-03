@@ -7,5 +7,78 @@
 
 .trainer-profile{
   background-color: white;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.profile-image{
+  text-align: center;
+  width: 100%;
+  img{
+    width: inherit;
+    background-size: cover;
+  }
+}
+
+.profile-headline{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.profile-schedule{
+width: 100%;
+display: grid;
+grid-template-columns: 50% 50%;
+grid-template-rows: 1fr;
+grid-template-areas: "day1" "day2";
+
+  .schedule-day-one{
+    grid-template-area: "day1";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .schedule-day-two{
+    grid-template-area: "day2";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
+
+.profile-classes{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  ul{
+    list-style-type: none;
+  }
+  ul li{
+
+  }
   width: 80%;
+  img{
+    width: 350px;
+    border-radius: 15px;
+    margin: 0 auto;
+  }
+}
+
+.profile-info{
+  padding: 15px;
+}
+
+
+.profile-reviews{
+
 }
