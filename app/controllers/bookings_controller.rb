@@ -9,10 +9,12 @@ class BookingsController < ApplicationController
     @training_session = @booking.training_session
     @training = @booking.training
     @user = current_user
+    @review = Review.new
+
   end
 
   def create
-    
+
     @booking = Booking.new
     @booking.status = true
     @user = current_user
