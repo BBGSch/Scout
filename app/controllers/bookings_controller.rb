@@ -30,8 +30,4 @@ class BookingsController < ApplicationController
     redirect_to training_session_path(@trainingsession)
   end
 
-  def booking_params
-    params.require(:booking).permit(:status, :user_id, :training_session_id)
-  end
-
 end
