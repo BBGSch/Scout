@@ -15,12 +15,16 @@
 
 <div class="profile-column">
   <div class="trainer-profile">
+
     <div class="profile-image">
           <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="">
     </div>
-    <div class="profile-headline">
-      <div>
-        <%=@trainer.name %>, <%=@trainer.gender%>, <%=@trainer.age%>
+        <div class="profile-headline">
+          <div>
+        <div>
+        <div class="trainer-name">
+       <%=@trainer.name %></div> <%=@trainer.gender%>, <%=@trainer.age%>
+      </div>
       </div>
       <div>
         <%=@trainer.rating%> 5 stars
@@ -28,14 +32,12 @@
     </div>
     <div class="profile-schedule">
       <div class="schedule-day-one">
-        <h4>TODAY</h4>
-        <%=@trainer.training_sessions.first.training.name%>
-        <%=@trainer.training_sessions.first.time%>
+        <h4>Today</h4>
+        <%=render "components/schedule-button", session: @trainer.training_sessions.first%>
       </div>
       <div class="schedule-day-two">
-        <h4>TOMORROW</h4>
-        <%=@trainer.training_sessions.last.training.name%>
-        <%=@trainer.training_sessions.last.time%>
+        <h4>Tomorrow</h4>
+         <%=render "components/schedule-button", session: @trainer.training_sessions.last%>
       </div>
     </div>
     <div class="profile-classes">
