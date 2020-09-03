@@ -1,28 +1,33 @@
-<div class="container container-new">
+<div class="container">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-sm-offset-4">
 
+        <div class="form-training">
+          <h2>Edit your session</h2>
+            <%= simple_form_for(@trainingsession) do |f|%>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
-
-      <%= simple_form_for(@trainingsession) do |f|%>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        
-        <div class="form-inputs">    
+        <div class="form-inputs">
           <%= f.input :location %>
           <%= f.input :capacity %>
           <%= f.input :time, as: :datetime, html5: true, start_year: Date.today.year, end_year: Date.today.year + 2 %>
         </div>
-      
+
         <div class="form-actions">
+          <%= link_to 'Back', training_session_path(@trainingsession), class: "btn" %>
           <%= f.button :submit, class: "btn btn-primary" %>
-          <button class="btn btn-secondary"> 
-            <%= link_to 'Back', training_session_path(@trainingsession) %> 
-          </button>
-        </div>  
-      <!-- <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea> -->
-      <% end %>
+        </div>
+       <% end %>
+      </div>
+    </div>
+    <div class="d-none d-md-block col-sm-4 col-md-6 col-lg-6">
+      <div class="image-wrapper">
+        <h2>
+          be awake!
+        </h2>
+          <%= image_tag "sport_man.jpeg", class: "image-card" %>
+      </div>
     </div>
   </div>
 </div>
