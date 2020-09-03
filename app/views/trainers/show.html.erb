@@ -41,6 +41,7 @@
         <%= link_to training.name, training_path(training) %></li>
         <% end %>
       </ul>
+
     </div>
     <div class="profile-info">
 
@@ -51,3 +52,5 @@
     <%= link_to "create new training", new_trainer_training_path(@trainer) %>
   </div>
 </div>
+
+<div><%= render "training_sessions/map",  markers: @markers %></div>

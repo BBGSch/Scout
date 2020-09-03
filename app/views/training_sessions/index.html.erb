@@ -8,7 +8,7 @@
     <p>Find me in app/views/training_sessions/index.html.erb</p>
 
     <% @trainingsessions.each do |sesh| %>
-      
+
 
 
       <h3><%= link_to sesh.training.name, training_session_path(sesh) %></h3>
@@ -20,4 +20,8 @@
 
     </div>
   </div>
+  <!-- Uncomment in order to enable the map -->
+  <div><%#= render "map",  markers: @markers %></div>
 </div>
+
+
