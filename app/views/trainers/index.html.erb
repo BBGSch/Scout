@@ -22,14 +22,15 @@
 </div>
 
 <div class="trainers-results">
-  <%= link_to trainer_path(@trainers.first) do %>
-<%=render "trainer-search-card"%>
+  <% @trainers.each do |trainer| %>
+  <%= link_to trainer_path(trainer) do %>
+  <%=render "trainer-search-card", trainer: trainer%>
+  <% end %>
 <%end%>
 </div>
 
-<% @trainers.each do |trainer| %>
-  <%= trainer.name %>
-  <%= link_to trainer.name, trainer_path(trainer) %>
-<% end %>
+
+
+
 
 
