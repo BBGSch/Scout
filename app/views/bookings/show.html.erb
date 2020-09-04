@@ -5,7 +5,7 @@
         <h1>
           <%= @training.name.capitalize %> | <%= @training_session.time.strftime("%b %e, %l:%M %p") %>, <%= @training_session.location %>
         </h1>
-        <%= link_to "Book now", "#", class: "btn btn-primary"  %>
+        <div class="btn btn-primary"> <%= @booking.status ? "confirmed" : unconfirmed %></div>
       </div>
       <div class="book-image">
         <%= cl_image_tag @booking.training.photos.first.key, height: 800, crop: :fill, class: "my-3" %>
