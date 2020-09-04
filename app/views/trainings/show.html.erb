@@ -1,18 +1,8 @@
 <div class="container container-new">
-  <h1>Trainings#show</h1>
-  <%= @training.name %>
-  <%= @training.description %>
-  <%= cl_image_tag @training.photos.first.key, height: 300, width: 400, crop: :fill %>
-
-  <% if @training.user = current_user %>
-    <button type="button" class="btn btn-warning">
-      <%= link_to "remove", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
-    </button>
-  <% end %>
-    <div>
-      <%= render "reviews/list", reviews: @reviews %>    
-    </div>
   
+
+  <%= render "components/training-card", training: @training, reviews: @reviews %>
+
 
 </div>
 
