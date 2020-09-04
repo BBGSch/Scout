@@ -1,15 +1,19 @@
 <div class="search-card">
   <div class="search-card-image">
     <!-- <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt=""> -->
-    <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
   </div>
   <div class="search-card-infos">
     <div class="search-card-infos-titles">
-      <row><h4>Jan</h4><h5>31, Male</h5></row>
-      <i class="fas fa-map-marker"></i><h6>Trains at Oosterpark, Westerpark, Vondelpark</h6>
+      <row><h4><%=trainer.name%></h4><h5> &ensp; <%=trainer.age%>, <%=trainer.gender%></h5></row><br>
+      <row><i class="fas fa-map-marker"></i><h6>&ensp;Trains at </h6>
+        <% trainer.training_sessions.each do |session| %>
+        <h6><%=session.location%></h6>
+        <%end%>
+         </row>
     </div>
     <div class="search-card-infos-long">
-      <p>I have been training for 15 years in the center of Amsterdam! I specialize in strength training, and I offer group classes, one on one, and have a flexible schedule.</p>
+      <p><%=trainer.bio%></p>
     </div>
   </div>
   <div class="search-card-stats">

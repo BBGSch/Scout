@@ -1,0 +1,39 @@
+.card-training {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 70px 0px;
+}
+
+.card-training > img {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-training h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-training p {
+  font-size: 18px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-training .card-training-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-training-infos .card-training-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

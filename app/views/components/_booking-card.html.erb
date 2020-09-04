@@ -1,6 +1,7 @@
 <div id="card-product" class="card-product">
   <%= cl_image_tag booking.training.photos.first.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
+
     <h2><%= booking.training.name.capitalize %></h2>
     <p> <%= booking.training_session.time.strftime("%A, %b %d") %> </p>
     <p> <%= booking.training_session.location %></p>

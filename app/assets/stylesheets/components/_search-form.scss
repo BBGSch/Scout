@@ -1,0 +1,27 @@
+.search_form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row{
+    display: inline-flex;
+  }
+}
+
+.search_form  input[type=text]{
+  border-radius: 2 px;
+  background-color: rgba(255, 255, 255, .6);
+  color: blue;
+  text-align: left;
+  height: 2.5rem;
+  box-shadow: 0 2px 6px rgba(255,255,255, .08);
+  border: 1px solid #E7E7E7;
+  transition: height .3s, background-color .3s;
+  width: 100px;
+}
+
+
+#city_search{
+}
+
+
+
