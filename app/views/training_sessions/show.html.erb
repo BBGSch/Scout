@@ -2,13 +2,10 @@
   <div class="row">
     <div class="col-6">
 
-      <h1>TrainingSessions#show</h1>
-      <p>Find me in app/views/training_sessions/show.html.erb</p>
-
       <h3><%= @training.name %></h3>
-      <h5><%= @trainingsession.time %></h5>
+      <h5><%= @trainingsession.time.strftime("%A, %b %d %k:%M") %></h5>
       <h5><%= @trainingsession.location %></h5>
-      <h5><%= @trainingsession.capacity %></h5>
+      <h5><%= @trainingsession.capacity %> people </h5>
 
 
       <button type="button" class="btn btn-success">

@@ -16,6 +16,24 @@
           <%= link_to "remove", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
         </button>
       <% end %>  
+
+      <div class="profile-schedule">
+              <div class="schedule-day-one">
+                <h4>Today</h4>
+                <%= link_to training_session_path(@training.training_sessions.first)  do %>
+                <%=render "components/schedule-button", session: @training.training_sessions.first%>
+                <%end%>
+              </div>
+              <div class="schedule-day-two">
+                <h4>Tomorrow</h4>
+                <%= link_to training_session_path(@training.training_sessions.last)  do %>
+                 <%=render "components/schedule-button", session: @training.training_sessions.last%>
+                 <%end%>
+              </div>
+            </div>
+          </div>
+
+    
     </div>
     <div>
       <%= render "reviews/list", reviews: @reviews %>    
