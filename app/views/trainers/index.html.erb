@@ -2,20 +2,29 @@
   <form class="search_form" action=<%=trainers_path%> method="get">
     <div>
     <div class="search_bar">
-      <row>
-           <input id="city_search" type="text" size=20 placeholder="City" name="location"><input type="text" id="guests-index" size="10" placeholder="Guests" name="guests"><input type="image" src="https://i.ibb.co/M8rpDV0/scout-blue.png" class="scout-btn">
-      </row>
+
+           <input id="city_search" type="text" size=20 placeholder="City" name="location">
+
       <br>
-      <row>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="male"> Male</label>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-        <label for="female"> Female</label>
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-        <label for="other"> Other</label>
-        <label for="vol">Age</label>
-        <input type="range" id="vol" name="vol" min="18" max="100">
-      </row>
+
+        <input type="checkbox" id="male" name="male" value="true">
+        <label for="male"> Male </label>
+        <input type="checkbox" id="female" name="female" value="true">
+        <label for="female"> Female </label>
+        <input type="checkbox" id="other" name="other" value="true">
+        <label for="other"> Other </label>
+
+      <br>
+
+        <label for="minage">Minimum Age:</label>
+        <input type="number" id="minage" name="minage"
+        min="18" max="100">
+        <label for="maxage">Maximum Age:</label>
+        <input type="number" id="maxage" name="maxage"
+        min="18" max="100">
+
+      <br>
+      <input type="submit" value="Search" class="scout-btn">
     </div>
     </div>
     </form>
