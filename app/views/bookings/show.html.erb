@@ -1,24 +1,23 @@
-<div class="container container-new">
+<div class="container">
   <div class="row">
-    <div class="col-6">
-
-      <h1>Bookings#show</h1>
-      <p>Find me in app/views/bookings/show.html.erb</p>
-
-      <% if @booking.user == @user  %>
-        <h3> <%= @training.name %> </h3>
-        <h3> <%= @training_session.time %> </h3>
-        <h3> <%= @training_session.location %> </h3>
-        <h3> <%= @booking.status %> </h3>
-        <button type="button" class="btn btn-warning">
-          <%= link_to "cancel", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>
-        </button>
-
-      <% else %>
-        <h3> you have no access to this data </h3>
-      <% end %>
-
+    <div class="col-12">
+      <div class="booking-header">
+        <h1>
+          <%= @training.name.capitalize %> | <%= @training_session.time.strftime("%b %e, %l:%M %p") %>, <%= @training_session.location %>
+        </h1>
+        <%= link_to "Book now", "#", class: "btn btn-primary"  %>
+      </div>
+      <div class="book-image">
+        <%= cl_image_tag @booking.training.photos.first.key, height: 800, crop: :fill, class: "my-3" %>
+      </div>
+     <div class="booking-content">
+      <span class="badge badge-primary">
+        20€
+      </span>
+      <p>
+        <%= @training.description %>
+      </p>
+     </div>
     </div>
   </div>
-  <div><%= render "reviews/form",  booking: @booking, review: @review %></div>
 </div>
