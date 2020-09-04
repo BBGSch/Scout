@@ -1,7 +1,14 @@
 class BookingsController < ApplicationController
   def index
     @user = current_user
-    @bookings = Booking.all.select { |booking| booking.user == @user  }
+    @bookings = Booking.all.select { |booking| booking.user == @user }
+    @booking.status = true
+    # if booking.date.to_time > Time.now
+    #   booking.status = false
+    # else
+    #   booking.status = true
+    # end
+
   end
 
   def show
@@ -10,11 +17,9 @@ class BookingsController < ApplicationController
     @training = @booking.training
     @user = current_user
     @review = Review.new
-
   end
 
   def create
-
     @booking = Booking.new
     @booking.status = true
     @user = current_user
@@ -31,5 +36,4 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to training_session_path(@trainingsession)
   end
-
 end

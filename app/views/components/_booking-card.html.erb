@@ -1,11 +1,16 @@
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+<div id="card-product" class="card-product">
+  <%= cl_image_tag booking.training.photos.first.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
-    <h2><%=booking.training.name%></h2>
-    <p> <%= booking.training.name %> </p>
-        <p> <%= booking.training_session.time %> </p>
-        <p> <%= booking.training_session.location %> </p>
-        <p> <%= booking.status %> </p>
+
+    <h2><%= booking.training.name.capitalize %></h2>
+    <p> <%= booking.training_session.time.strftime("%A, %b %d") %> </p>
+    <p> <%= booking.training_session.location %></p>
+      <% if booking.status == true%>
+        <p> <i class="far fa-check-circle text-success" style="font-size: 20px;"></i></p>
+      <% else %>
+        <p><i class="far fa-times-circle text-warning" style="font-size: 20px;"></i></p>
+      <% end %>
   </div>
 </div>
 
+<%#= booking.status %>
