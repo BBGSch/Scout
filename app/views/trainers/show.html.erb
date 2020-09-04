@@ -33,29 +33,38 @@
         <%=@trainer.rating%> 5 stars
       </div>
     </div>
-    <div class="profile-schedule">
-      <div class="schedule-day-one">
-        <h4>Today</h4>
-        <%=render "components/schedule-button", session: @trainer.training_sessions.first%>
-      </div>
-      <div class="schedule-day-two">
-        <h4>Tomorrow</h4>
-         <%=render "components/schedule-button", session: @trainer.training_sessions.last%>
-      </div>
-    </div>
-    <div class="profile-classes">
-      <h4>My Classes:</h4>
-      <ul>
-        <% @trainings.each do |training| %>
-        <li>
-        <%= link_to training_path(training) do %>
-          <% render "components/trainer-trainings-card", training: training %>
-        <%end%>
-        </li>
-        <% end %>
-      </ul>
 
-    </div>
+
+
+    <% if @trainer.trainings.present? %>
+      <div class="profile-schedule">
+        <div class="schedule-day-one">
+          <h4>Today</h4>
+          <%=render "components/schedule-button", session: @trainer.training_sessions.first%>
+        </div>
+        <div class="schedule-day-two">
+          <h4>Tomorrow</h4>
+           <%=render "components/schedule-button", session: @trainer.training_sessions.last%>
+        </div>
+      </div>
+      <div class="profile-classes">
+        <h4>My Classes:</h4>
+        <ul>
+          <% @trainings.each do |training| %>
+          <li>
+          <%= link_to training_path(training) do %>
+            <% render "components/trainer-trainings-card", training: training %>
+          <%end%>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <h4>Create your first training!</h4>
+    <% end %>
+
+
+
     <div class="profile-info">
       <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
       <%=@trainer.bio%>

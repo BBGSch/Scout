@@ -36,9 +36,13 @@ joop.photos.attach(io: jooppic, filename: 'jooppic.png', content_type: 'image/pn
 
 # trainings
 
-calisthenics1 = Training.create(name: "calisthenics for beginners", user_id: 1, description: "In this training, I will bring you up to speed with the core exercises in calisthenics")
+calisthenics1 = Training.create(name: "calisthenics for beginners", user_id: 1, 
+  description: "In this training, I will bring you up to speed with the core exercises in calisthenics",
+  price: 10, duration: DateTime.new(2020,9,19,1,00,0, "+00:00"), category: "calisthenics")
 puts calisthenics1.name
-crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2, description: "In this training, I will bring you up to speed with the core exercises in crossfit. Let's get fit")
+crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2, 
+  description: "In this training, I will bring you up to speed with the core exercises in crossfit. Let's get fit",
+  price: 15, duration: DateTime.new(2020,9,19,1,30,0, "+00:00"), category: "crossfit")
 puts crossfit1.name
 
 # training pics
@@ -116,3 +120,8 @@ review1 = Review.create(title: "Great, would go again", description: "very impre
 puts review1.title
 review2 = Review.create(title: "Very fun", description: "Great workout, a bit too hard for me. I'll be back", stars: 4, user_id: 4, booking_id: 7)
 puts review2.title
+review3 = Review.create(title: "Great, would go again", description: "very intense and fun workout. Will go again", stars: 5, user_id: 3, booking_id: 4)
+puts review1.title
+review4 = Review.create(title: "Very fun", description: "Enjoyable workout, you feel your muscles burning. I'll be back", stars: 4, user_id: 4, booking_id: 10)
+puts review2.title
+
