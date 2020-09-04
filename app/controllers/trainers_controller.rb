@@ -7,6 +7,7 @@ class TrainersController < ApplicationController
     @trainer = User.find(params[:id])
     @trainings = @trainer.trainings
     @trainingsessions = @trainer.training_sessions
+    @reviews = @trainer.reviews
     @markers = @trainingsessions.geocoded.map do |trainingsession|
       {
         lat: trainingsession.latitude,

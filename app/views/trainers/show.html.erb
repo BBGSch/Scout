@@ -17,7 +17,10 @@
   <div class="trainer-profile">
 
     <div class="profile-image">
-          <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="">
+          <!-- <img src="https://images.unsplash.com/photo-1597347366210-e874cb3be303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt=""> -->
+
+          <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+
     </div>
         <div class="profile-headline">
           <div>
@@ -59,9 +62,11 @@
     </div>
     <div class="profile-reviews">
         <%=@trainer.rating%>
+        <div><%= render "reviews/list", reviews: @reviews %></div>
     </div>
     <%= link_to "create new training", new_trainer_training_path(@trainer) %>
   </div>
 </div>
 
 <div><%= render "training_sessions/map",  markers: @markers %></div>
+

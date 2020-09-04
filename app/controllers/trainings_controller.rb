@@ -1,6 +1,7 @@
 class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
+    @reviews = @training.reviews
   end
 
   def new
@@ -36,7 +37,7 @@ class TrainingsController < ApplicationController
   end
 
   def destroy
-    
+
     @training = Training.find(params[:id])
     @trainer = @training.user
     @training.destroy
