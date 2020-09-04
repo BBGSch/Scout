@@ -40,11 +40,15 @@
       <div class="profile-schedule">
         <div class="schedule-day-one">
           <h4>Today</h4>
+          <%= link_to training_session_path(@trainer.training_sessions.first)  do %>
           <%=render "components/schedule-button", session: @trainer.training_sessions.first%>
+          <%end%>
         </div>
         <div class="schedule-day-two">
           <h4>Tomorrow</h4>
+          <%= link_to training_session_path(@trainer.training_sessions.last)  do %>
            <%=render "components/schedule-button", session: @trainer.training_sessions.last%>
+           <%end%>
         </div>
       </div>
       <div class="profile-classes">
