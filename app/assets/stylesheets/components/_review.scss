@@ -1,0 +1,39 @@
+.reviews {
+  padding: 15px;
+  max-width: 768px;
+  margin: 0 auto;
+}
+.review-item{
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 5px;
+  h2{
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+  }
+}
+.review-item .review-date{
+  color: #cecece;
+}
+.review-item .review-text{
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 5px;
+  color: #343a40;
+}
+.dates {
+  font-size: 10px;
+  color: #cecece;
+  padding-top: 5px;
+}
+.username {
+  font-size: 12px;
+  color: #f3f3f3f;
+  padding: 5px;
+}
+#avatar-box {
+  padding-top:  10px;
+}
+#stars-size {
+  font-size: 12px;
+}
