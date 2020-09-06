@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :trainings, only: [ :index, :new, :create ]
   end
 
-  resources :trainings, only: [ :show, :edit, :update, :destroy ] do
+  resources :trainings, only: [ :index, :show, :edit, :update, :destroy ] do
     resources :training_sessions, only: [ :index, :new, :create]
   end
 

@@ -16,12 +16,57 @@
   box-shadow: 0 2px 6px rgba(255,255,255, .08);
   border: 1px solid #E7E7E7;
   transition: height .3s, background-color .3s;
-  width: 100px;
 }
 
-
-#city_search{
+.search_form .dropdown{
+  border-radius: 2 px;
+  background-color: rgba(255, 255, 255, .6);
+  color: blue;
+  text-align: left;
+  height: 2.5rem;
+  box-shadow: 0 2px 6px rgba(255,255,255, .08);
+  border: 1px solid #E7E7E7;
+  transition: height .3s, background-color .3s;
 }
 
+.dropdown-toggle {
+  font: 400 13.3333px Arial;
+  margin: 0;
+  padding-left: 0;
+  color: #6b747c;
+  padding-top: 8%;
+}
+
+.checkbox-menu li label {
+    display: block;
+    padding: 3px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    margin:0;
+    transition: background-color .4s ease;
+}
+.checkbox-menu li input {
+    margin: 0px 5px;
+    top: 2px;
+    position: relative;
+}
+
+.checkbox-menu li.active label {
+    background-color: #cbcbff;
+    font-weight:bold;
+}
+
+.checkbox-menu li label:hover,
+.checkbox-menu li label:focus {
+    background-color: #f5f5f5;
+}
+
+.checkbox-menu li.active label:hover,
+.checkbox-menu li.active label:focus {
+    background-color: #b8b8ff;
+}
 
 
