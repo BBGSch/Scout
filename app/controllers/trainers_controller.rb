@@ -6,7 +6,6 @@ class TrainersController < ApplicationController
 
   def search(params)
      return User.where(trainer: true) if params.keys.length == 2
-
      sessions = TrainingSession.near(params[:location], 50)
      trainers = sessions.map{|session| session.training.user}.uniq
      genders = []
@@ -23,10 +22,12 @@ class TrainersController < ApplicationController
     @trainings = @trainer.trainings
     @trainingsessions = @trainer.training_sessions
     @reviews = @trainer.reviews
+    # @filtered_markers = @trainingsessions.each() do .unique get  unique lat & long
     @markers = @trainingsessions.geocoded.map do |trainingsession|
       {
         lat: trainingsession.latitude,
-        lng: trainingsession.longitude
+        lng: trainingsession.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trainingsession: trainingsession })
       }
     end
   end
