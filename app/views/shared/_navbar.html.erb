@@ -1,54 +1,31 @@
  <header>
-        <div class="header__bg">
-        </div>
-        <div class="header__bg__2">
-        </div>
-        <div class="header-content">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="header-content-home">
-          <%= link_to root_path do %>
-          <i class="fas fa-circle"></i>
-           <%end%>
-        </div>
-</header>
-
-
-
-
-<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://i.ibb.co/M8rpDV0/scout-blue.png" %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="header__bg">
   </div>
-</div>
- -->
+  <div class="header__bg__2">
+  </div>
+  <div class="hamburger">
+    <div class="dropdown">
+      <i class="fas fa-bars"class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </i>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/bookings">My Bookings</a>
+        <a class="dropdown-item" href="/trainers">Find Trainer</a>
+        <a class="dropdown-item" href="/trainings">Find Training</a>
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to "Log in", new_user_session_path, class: "dropdown-item"  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="header-content-home">
+      <%= link_to root_path do %>
+      <i class="fas fa-circle"></i>
+      <%end%>
+    </div>
+  </header>
+
+
+
+  <!-- Log Out -->
