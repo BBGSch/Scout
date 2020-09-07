@@ -1,0 +1,19 @@
+.data-card {
+  border: none;
+  padding: 20px 40px;
+  border-radius: 6px;
+  margin: 5px;
+  min-height: 330px;
+  height: 96%;
+  box-sizing: border-box;
+}
+
+.data-card.white {
+  background-color: white;
+  color: black;
+}
+
+.data-card.blue {
+  background-color: #3366CC;
+  color: white;
+}
