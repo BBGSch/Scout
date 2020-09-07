@@ -1,0 +1,45 @@
+.schedule-row{
+width: 98%;
+display: grid;
+grid-template-columns: 4fr 7fr;
+grid-template-rows: 1fr;
+margin-bottom: 2px;
+border-radius: 2px;
+overflow: hidden;
+height: 3rem;
+
+  a:hover{
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.class-name{
+  text-transform: capitalize;
+  color: white;
+  background-color: rgba(0, 180, 216, .7);
+  display: flex;
+  align-items: center;
+
+  padding-left: 10px;
+}
+
+.class-infos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(202, 240, 248, .7);
+
+  .time{
+    padding-left: 10px;
+  }
+
+  .location{}
+
+  .book{
+    border-left: solid 1px white;
+    height: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

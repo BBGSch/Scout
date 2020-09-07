@@ -53,29 +53,33 @@
 }
 
 .profile-schedule{
-width: 100%;
-display: grid;
-grid-template-columns: 50% 50%;
-grid-template-rows: 1fr;
-grid-template-areas: "day1" "day2";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+// display: grid;
+// grid-template-columns: 50% 50%;
+// grid-template-rows: 1fr;
+// grid-template-areas: "day1" "day2";
 
 
-  .schedule-day-one{
-    grid-template-area: "day1";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+//   .schedule-day-one{
+//     grid-template-area: "day1";
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
 
-  }
+//   }
 
-  .schedule-day-two{
-    grid-template-area: "day2";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+//   .schedule-day-two{
+//     grid-template-area: "day2";
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//   }
 
 }
 

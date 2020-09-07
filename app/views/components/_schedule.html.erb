@@ -1,0 +1,16 @@
+<div class="schedule-row">
+  <div class="class-name">
+    <%=training_session.training.name%>
+  </div>
+  <div class="class-infos">
+    <div class="time">
+      <%=training_session.time.strftime("%H:%M")%>
+    </div>
+    <div class="location">
+      <%=training_session.location%>
+    </div>
+    <div class="book">
+      <%=link_to "BOOK", training_session_bookings_path(training_session), method: :post %>
+    </div>
+  </div>
+</div>
