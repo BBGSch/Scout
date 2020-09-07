@@ -12,6 +12,7 @@
           <%= f.input :location %>
           <%= f.input :capacity %>
           <%= f.input :time, as: :datetime, html5: true %>
+          <%= f.input :frequency, as: :radio_buttons, collection: TrainingSession.frequencies.keys, wrapper: :vertical_collection_inline %>
         </div>
 
         <div class="form-actions">
@@ -35,5 +36,3 @@
     </div>
   </div>
 </div>
-
-# </%= cl_image_tag("pewuvajlv2j6wo8daiaf", crop: :fill, class: "image-card") %>

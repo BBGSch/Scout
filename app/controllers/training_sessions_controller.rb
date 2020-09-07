@@ -27,6 +27,7 @@ class TrainingSessionsController < ApplicationController
     @training = Training.find(params[:training_id])
     @trainingsession.training = @training
       if @trainingsession.save
+        schedule(@trainingsession, @trainingsession.frequency)
         redirect_to training_session_path(@trainingsession)
       else
         render :new
@@ -59,7 +60,48 @@ class TrainingSessionsController < ApplicationController
   private
 
   def trainingsession_params
-    params.require(:training_session).permit(:time, :training_id, :capacity, :location, :latitude, :longitude)
+    params.require(:training_session).permit(:time, :training_id, :capacity, :location, :frequency, :latitude, :longitude)
+  end
+
+  def schedule(training_session, frequency)
+    
+    
+
+    if frequency == "weekly"
+      last_sesh = training_session.dup
+      count = 0
+      51.times do
+        new_sesh = last_sesh.dup
+        new_sesh.time += 7.days
+        new_sesh.save
+        last_sesh = new_sesh.dup
+        count += 1
+      end
+      flash.notice = " #{last_sesh.training.training_sessions.count} weekly sessions saved"
+
+    elsif frequency == "biweekly"
+      last_sesh = training_session.dup
+      count = 0
+      25.times do
+        new_sesh = last_sesh.dup
+        new_sesh.time += 14.days
+        new_sesh.save
+        last_sesh = new_sesh.dup
+        count += 1
+      end
+      flash.notice = " #{last_sesh.training.training_sessions.count} weekly sessions saved"
+    else
+      last_sesh = training_session.dup
+      count = 0
+      11.times do
+        new_sesh = last_sesh.dup
+        new_sesh.time += 1.months
+        new_sesh.save
+        last_sesh = new_sesh.dup
+        count += 1
+      end
+      flash.notice = " #{last_sesh.training.training_sessions.count} weekly sessions saved"
+    end
   end
 
 end
