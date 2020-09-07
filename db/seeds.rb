@@ -8,6 +8,8 @@
 
 require "open-uri"
 
+
+
 # users
 
 simone = User.create(email: "user@example.com", password: "123ABC", name: "Simone Biles", age: "21", gender: "female", bio: "Hi, I am Simone. I have over 10 years of experience in gymnastics, yoga and calisthenics.", trainer: true)
@@ -36,11 +38,11 @@ joop.photos.attach(io: jooppic, filename: 'jooppic.png', content_type: 'image/pn
 
 # trainings
 
-calisthenics1 = Training.create(name: "calisthenics for beginners", user_id: 1, 
+calisthenics1 = Training.create(name: "calisthenics for beginners", user_id: 1,
   description: "In this training, I will bring you up to speed with the core exercises in calisthenics",
   price: 10, duration: DateTime.new(2020,9,19,1,00,0, "+00:00"), category: "calisthenics")
 puts calisthenics1.name
-crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2, 
+crossfit1 = Training.create(name: "crossfit for beginners", user_id: 2,
   description: "In this training, I will bring you up to speed with the core exercises in crossfit. Let's get fit",
   price: 15, duration: DateTime.new(2020,9,19,1,30,0, "+00:00"), category: "crossfit")
 puts crossfit1.name
@@ -54,18 +56,18 @@ crossfit1.photos.attach(io: crossfit1pic, filename: 'crossfit1pic.png', content_
 
 
 # new sessions
-calisthenics_session1 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 8, 20, 0, 0, "+02:00") )
+calisthenics_session1 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 8, 20, 0, 0, "+02:00") )
 puts calisthenics_session1.id
-calisthenics_session2 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 15, 20, 0, 0, "+02:00") )
+calisthenics_session2 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 15, 20, 0, 0, "+02:00") )
 puts calisthenics_session2.id
-calisthenics_session3 = TrainingSession.create(training_id: 1, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 22, 20, 0, 0, "+02:00") )
+calisthenics_session3 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", time: DateTime.new(2020, 12, 22, 20, 0, 0, "+02:00") )
 puts calisthenics_session3.id
 
-crossfit_session1 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 8, 20, 0, 0, "+02:00") )
+crossfit_session1 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 8, 20, 0, 0, "+02:00") )
 puts crossfit_session1.id
-crossfit_session2 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 15, 20, 0, 0, "+02:00") )
+crossfit_session2 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 15, 20, 0, 0, "+02:00") )
 puts crossfit_session2.id
-crossfit_session3 = TrainingSession.create(training_id: 2, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 22, 20, 0, 0, "+02:00") )
+crossfit_session3 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", time: DateTime.new(2020, 10, 22, 20, 0, 0, "+02:00") )
 puts crossfit_session3.id
 
 # old sessions

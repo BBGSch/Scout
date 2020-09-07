@@ -5,6 +5,7 @@
       <h3><%= @training.name %></h3>
       <h5><%= @trainingsession.time.strftime("%A, %b %d %k:%M") %></h5>
       <h5><%= @trainingsession.location %></h5>
+      <h5>Price: <%= humanized_money_with_symbol(@trainingsession.price) %></h5>
       <h5><%= @trainingsession.capacity %> people </h5>
 
 
