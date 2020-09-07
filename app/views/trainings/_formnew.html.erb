@@ -12,7 +12,7 @@
               <%= f.input :name, placeholder: "Yoga for beginners" %>
               <%= f.input :description, as: :text, placeholder: "I'm going to teach some boxing in the park" %>
               <%= f.input :price, placeholder: "€10" %>
-              <%= f.input :duration, placeholder: DateTime.new(2020,9,19,1,00,0, "+00:00").strftime( "%kh:%Mm" ) %>
+              <%= f.input :duration, as: :time, default: Time.parse("1:00") %>
               <%= f.input :category, collection: Training.categories.keys, prompt: "Please Select" %>
               <%= f.input :photos, as: :file, input_html: { multiple: true } %>
             </div>
