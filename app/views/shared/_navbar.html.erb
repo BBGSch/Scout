@@ -1,17 +1,30 @@
  <header>
-        <div class="header__bg">
+  <div class="header__bg">
+  </div>
+  <div class="header__bg__2">
+  </div>
+  <div class="hamburger">
+    <div class="dropdown">
+      <i class="fas fa-bars"class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      </i>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/bookings">My Bookings</a>
+        <a class="dropdown-item" href="/trainers">Find Trainer</a>
+        <a class="dropdown-item" href="/trainings">Find Training</a>
+        <% if user_signed_in? %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <% else %>
+          <%= link_to "Log in", new_user_session_path, class: "dropdown-item"  %>
+          <% end %>
         </div>
-        <div class="header__bg__2">
-        </div>
-        <div class="header-content">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="header-content-home">
-          <%= link_to root_path do %>
-          <i class="fas fa-circle"></i>
-           <%end%>
-        </div>
-</header>
+      </div>
+    </div>
+    <div class="header-content-home">
+      <%= link_to root_path do %>
+      <i class="fas fa-circle"></i>
+      <%end%>
+    </div>
+  </header>
 
 
 

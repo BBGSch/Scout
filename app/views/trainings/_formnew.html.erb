@@ -9,9 +9,12 @@
           <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
             <div class="form-inputs">
-              <%= f.input :name, placeholder: "Daan Roelofs" %>
+              <%= f.input :name, placeholder: "Yoga for beginners" %>
               <%= f.input :description, as: :text, placeholder: "I'm going to teach some boxing in the park" %>
-              <%= f.input :photo, as: :file %>
+              <%= f.input :price, placeholder: "€10" %>
+              <%= f.input :duration, placeholder: DateTime.new(2020,9,19,1,00,0, "+00:00").strftime( "%kh:%Mm" ) %>
+              <%= f.input :category, collection: Training.categories.keys, prompt: "Please Select" %>
+              <%= f.input :photos, as: :file, input_html: { multiple: true } %>
             </div>
 
             <div class="form-actions">
@@ -33,4 +36,9 @@
   </div>
 </div>
 
-# </%= cl_image_tag("xq4wxqr8cuwbecyrkyl1", crop: :fill, class: "image-card") %>
+<!-- redirect to create training session -->
+<!-- ask for first date and scheduling frequency -->
+<!-- redirect to calendar view -->
+
+
+<!-- attendance list: booking index or booking.user index -->
