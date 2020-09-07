@@ -91,6 +91,7 @@
 <% end %></ul>
 -->
 
+
 <div class="profile-column">
 
 
@@ -105,7 +106,7 @@
   <% end %>
 
 
-  <div class="trainer-profile">
+
 
     <div class="profile-image">
       <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
@@ -159,12 +160,11 @@
       <%= render "reviews/list", reviews: @reviews %>
     </div>
   </div>
+  <div class="col-md-6" style="margin-top:8%">
+    <div><%= render "training_sessions/map",  markers: @markers %></div>
+  </div>
 </div>
 </div>
-
-<div><%= render "training_sessions/map",  markers: @markers %></div>
-
-
 
 
 <!-- <div class="schedule-day-one">
