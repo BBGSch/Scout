@@ -1,15 +1,17 @@
 class TrainingsController < ApplicationController
   def index
-    @trainings = search(params)
+    @trainings = Training.all # search(params)
     @categories = Training.distinct.pluck(:category)
+    @markers = []
     @trainings.each do |t|
       unless t.nil? && t.training_sessions.nil?
         @session = t.training_sessions
-        @markers = @session.geocoded.map do |trainingsession|
-          {
+        @session.geocoded.map do |trainingsession|
+          @markers.push({
             lat: trainingsession.latitude,
-            lng: trainingsession.longitude
-          }
+            lng: trainingsession.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { trainingsession: trainingsession })
+          })
         end
       end
     end
@@ -17,7 +19,6 @@ class TrainingsController < ApplicationController
   end
 
   def search(params)
-
     return Training.all if params.keys.length == 2
     sessions = TrainingSession.near(params[:location], 50)
     trainings = sessions.map{|session| session.training}.uniq
