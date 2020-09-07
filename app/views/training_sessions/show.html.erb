@@ -13,6 +13,11 @@
         <%= link_to "book", training_session_bookings_path(@trainingsession), method: :post %>
       </button>
 
+        <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'training_session_id', @trainingsession.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+        <% end %>
+
 
     </div>
   </div>

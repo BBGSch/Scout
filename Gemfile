@@ -28,6 +28,7 @@ gem 'money-rails'
 
 gem 'stripe'
 
+gem 'stripe_event'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
