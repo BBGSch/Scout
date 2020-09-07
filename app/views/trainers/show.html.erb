@@ -13,79 +13,76 @@
 <% end %></ul>
  -->
 
-<div class="profile-column">
-
-
-  <% if @trainer == current_user  %>
-    <div class = "trainer-controls">
-      <h2> Welcome <%= @trainer.name %> </h2>
-      <div class = "trainer-controls-buttons">
-        <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
-        <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="profile-column">
+      <% if @trainer == current_user  %>
+      <div class = "trainer-controls">
+        <h2> Welcome <%= @trainer.name %> </h2>
+        <div class = "trainer-controls-buttons">
+          <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
+          <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-  
+      <% end %>
 
-  <div class="trainer-profile">
 
-    <div class="profile-image">
+      <div class="trainer-profile">
+
+        <div class="profile-image">
           <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
-    </div>
+        </div>
         <div class="profile-headline">
           <div>
-        <div>
-        <div class="trainer-name">
-       <%=@trainer.name %></div> <%=@trainer.gender%>, <%=@trainer.age%>
-      </div>
-      </div>
-      <div>
-        <%=@trainer.rating%> 5 stars
-      </div>
-    </div>
+            <div>
+              <div class="trainer-name">
+               <%=@trainer.name %></div> <%=@trainer.gender%>, <%=@trainer.age%>
+             </div>
+           </div>
+           <div>
+            <%=@trainer.rating%> 5 stars
+          </div>
+        </div>
 
-
-
-    <% if @trainer.trainings.present? %>
-      <div class="profile-schedule">
-        <% @trainer.training_sessions.each do |training_session| %>
-        <%=render "components/schedule", training_session: training_session%>
-        <%end%>
-      </div>
-      <div class="profile-classes">
-        <h4>My Classes:</h4>
-        <ul>
-          <% @trainings.each do |training| %>
-          <li>
-          <%= link_to training_path(training) do %>
-            <% render "components/trainer-trainings-card", training: training %>
+        <% if @trainer.trainings.present? %>
+        <div class="profile-schedule">
+          <% @trainer.training_sessions.each do |training_session| %>
+          <%=render "components/schedule", training_session: training_session%>
           <%end%>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    <% else %>
-      <h4>Create your first training!</h4>
-    <% end %>
+        </div>
+        <div class="profile-classes">
+          <h4>My Classes:</h4>
+          <ul>
+            <% @trainings.each do |training| %>
+            <li>
+              <%= link_to training_path(training) do %>
+              <% render "components/trainer-trainings-card", training: training %>
+              <%end%>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+        <% else %>
+        <h4>Create your first training!</h4>
+        <% end %>
 
-
-
-    <div class="profile-info">
-      <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
-      <%=@trainer.bio%>
-    </div>
-    <div class="profile-reviews">
-      <%=@trainer.rating%>
-      <div>
-        <%= render "reviews/list", reviews: @reviews %>
+        <div class="profile-info">
+          <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
+          <%=@trainer.bio%>
+        </div>
+        <div class="profile-reviews">
+          <%=@trainer.rating%>
+          <div>
+            <%= render "reviews/list", reviews: @reviews %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <div class="col-md-6" style="margin-top:8%">
+    <div><%= render "training_sessions/map",  markers: @markers %></div>
+  </div>
 </div>
-
-<div><%= render "training_sessions/map",  markers: @markers %></div>
-
-
 
 
 <!-- <div class="schedule-day-one">
