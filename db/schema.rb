@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+# <<<<<<< HEAD
+# ActiveRecord::Schema.define(version: 2020_09_07_123046) do
+# =======
 ActiveRecord::Schema.define(version: 2020_09_07_125944) do
+# >>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +50,19 @@ ActiveRecord::Schema.define(version: 2020_09_07_125944) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "training_session_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "training_session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["training_session_id"], name: "index_orders_on_training_session_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -67,7 +84,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_125944) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "time"
+    t.integer "price_cents", default: 0, null: false
     t.integer "frequency"
+
     t.index ["training_id"], name: "index_training_sessions_on_training_id"
   end
 
@@ -104,6 +123,8 @@ ActiveRecord::Schema.define(version: 2020_09_07_125944) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "training_sessions"
   add_foreign_key "bookings", "users"
+  add_foreign_key "orders", "training_sessions"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
   add_foreign_key "training_sessions", "trainings"

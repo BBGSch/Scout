@@ -9,6 +9,7 @@ class User < ApplicationRecord
 # if not trainer
 
   has_many :outgoing_reviews, source: :review, class_name: "Review"
+  has_many :orders
 
 # if trainer
 

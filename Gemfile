@@ -24,6 +24,11 @@ gem 'redis', '~> 4.0'
 gem 'geocoder'
 gem "simple_calendar", "~> 2.0"
 
+gem 'money-rails'
+
+gem 'stripe'
+
+gem 'stripe_event'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

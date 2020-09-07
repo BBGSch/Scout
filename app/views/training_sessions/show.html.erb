@@ -5,13 +5,21 @@
       <h3><%= @training.name %></h3>
       <h5><%= @trainingsession.time.strftime("%A, %b %d %k:%M") %></h5>
       <h5><%= @trainingsession.location %></h5>
+      <h5>Price: <%= humanized_money_with_symbol(@trainingsession.price) %></h5>
       <h5><%= @trainingsession.capacity %> people </h5>
 
 
       <% if @training.user == current_user && @trainingsession.bookings.exists? %>
         <h3> Attendees </h3>
 
-        
+
+        <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'training_session_id', @trainingsession.id %>
+        <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+        <% end %>
+
+
+
         <div class="row">
           <div class="col-md-6">
             <div class="tab-content">
@@ -21,23 +29,24 @@
                     <%=render "components/attendee-card", booking: booking %>
                     <% end %>
                 </div>
-              </div>      
+              </div>
             </div>
           </div>
         </div>
 
 
 
-      <% else %>  
+      <% else %>
         <button type="button" class="btn btn-success">
           <%= link_to "book", training_session_bookings_path(@trainingsession), method: :post %>
         </button>
-      <% end %>  
+      <% end %>
+
 
     </div>
   </div>
   <!-- <div> -->
-    <%#= render "reviews/list", reviews: @trainingsession.training.reviews %>  
+    <%#= render "reviews/list", reviews: @trainingsession.training.reviews %>
   <!-- </div> -->
 </div>
 
