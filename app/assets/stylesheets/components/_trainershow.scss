@@ -1,22 +1,24 @@
 .profile-img{
-  border-radius: 15px;
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
   img{
-    border-radius: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 13px #888888;
   }
-
 }
 
-
 .data-card {
+  overflow: hidden;
+  position: relative;
   border: none;
   padding: 20px 40px;
-  border-radius: 2px;
+  border-radius: 5px;
   margin: 5px;
   min-height: 200px;
   height: 96%;
   box-sizing: border-box;
+  box-shadow: 1px 1px 13px #888888;
 }
 
 .data-card.white {
@@ -29,3 +31,34 @@
   color: white;
 }
 
+.trainer-bio {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.trainer-sub-bio {
+  text-align: center;
+  padding: 0px 0px 10px;
+}
+
+.btn-primary {
+ margin-bottom: 10px;
+}
+
+#bio {
+  padding-top: 63px;
+  font-size: 18px;
+}
+
+#slogan {
+  padding-top: 77px;
+  padding-left: 61px;
+}
+
+.classes-cards {
+  margin: 5px;
+}
+
+.classes-cards .card-product {
+    box-shadow: 1px 1px 13px #888888;
+}

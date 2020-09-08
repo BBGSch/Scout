@@ -1,8 +1,8 @@
-<div class="card-product">
-  <%= cl_image_tag training.photos.first.key%>
+<!-- <div class="card-product" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(https://res.cloudinary.com/daanr37/image/upload/v1599481103/<%=training.photos.first.key%>)"> -->
+<div class="card-product" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(<%= cl_image_path training.photos.first.key, height: 600, width: 800, crop: :fill %>)">
+
 <!--   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
  -->  <div class="card-product-infos">
-    <h2> <%= training.name %> </h2>
-    <p> <%= training.description %> </p>
+    <h2 id="name"> <%= training.name %> </h2>
   </div>
 </div>
