@@ -5,10 +5,15 @@
   </div>
   <div class="search-card-infos">
     <div class="search-card-infos-titles">
-      <row><h4><%=trainer.name%></h4><h5> &ensp; <%=trainer.age%>, <%=trainer.gender%></h5></row><br>
-      <row><i class="fas fa-map-marker"></i><h6>&ensp;Trains at </h6>
+      <row><h2><%=trainer.name%></h2><h3> &ensp; <%=trainer.age%>, <%=trainer.gender%></h3></row><br>
+      <row><i class="fas fa-map-marker"></i><h6>&ensp;Trains at&ensp;</h6>
+        <% locations = [] %>
         <% trainer.training_sessions.each do |session| %>
-        <h6><%=session.location%></h6>
+        <% locations << session.location %>
+        <% locations.uniq!%>
+        <%end%>
+        <% locations.each do |location| %>
+        <h6> <%=location%></h6>
         <%end%>
          </row>
     </div>
