@@ -19,26 +19,26 @@ class TrainingsController < ApplicationController
   end
 
   def search(params)
-   return Training.all if params.keys.length == 2
-   if params[:location] == ""
+    return Training.all if params.keys.length == 2
+    if params[:location] == ""
      params[:location] = "Amsterdam"
-   end
-   sessions = TrainingSession.near(params[:location], 50)
+    end
+    sessions = TrainingSession.near(params[:location], 50)
 
-   if params[:datetime]
+    if params[:datetime] != ""
 
-    datetime_from_search = DateTime.parse(params[:datetime])
+      datetime_from_search = DateTime.parse(params[:datetime])
 
-    start_time = datetime_from_search - 2.hours
-    end_time = datetime_from_search + 2.hours
-    sessions = sessions.where(time: start_time..end_time)
-  end
-  trainings = sessions.map{|session| session.training}
+      start_time = datetime_from_search - 2.hours
+      end_time = datetime_from_search + 2.hours
+      sessions = sessions.where(time: start_time..end_time)
+    end
+    trainings = sessions.map{|session| session.training}.uniq
 
-  if params[:category] != "All"
-    trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}
-  end
-  rating = params[:stars][0]
+    if params[:category] != "All"
+      trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}.uniq
+    end
+    rating = params[:stars][0]
     # trainings = trainings.select { |training| training.reviews.map { |review| review.stars >= rating.to_i} }
     trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
   end
