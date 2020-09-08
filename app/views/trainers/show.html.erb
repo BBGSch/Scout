@@ -1,12 +1,26 @@
-
-
 <div class="container">
-
-
-
-
-
  <div class="class d-flex justify-content-center">
+  <div class="col-md-6 col-sm-12">
+    <div class="profile-img class d-flex justify-content-center">
+      <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+    </div>
+    <div>
+      <h1 class="trainer-bio"> <%= @trainer.name %></h1>
+      <h4 class="trainer-sub-bio">
+        <% if @trainer.female? %>
+          <i class="fas fa-venus"></i>
+        <% elsif @trainer.male? %>
+         <i class="fas fa-mars"></i>
+        <% else %>
+          <%=@trainer.gender%>
+        <% end %>
+          <%=@trainer.age%>
+      </h4>
+    </div>
+  </div>
+</div>
+  
+   <div class="class d-flex justify-content-center">
   <div class="col-md-8 col-sm-12">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -30,61 +44,54 @@
     </a>
   </div>
 
-        <h1 class="align-center"><%= @trainer.name %> </h1>
-      </div>
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div id="<%= @trainer == current_user ? '' : 'bio' %>" class="data-card white">
+     <% if @trainer == current_user  %>
+     <h3> Welcome <%= @trainer.name %> </h3>
+     <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
+     <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
+     <br>
+     <strong><%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.</strong>
+     <%=@trainer.bio%>
+     <%=@trainer.rating%>
+     <% else %>
+     <!-- <h2> <%#= @trainer.name %> </h2> -->
+     <strong><%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.</strong>
+     <%=@trainer.bio%>
+     <%=@trainer.rating%>
+     <% end %>
    </div>
+ </div>
+ <div class="col-md-6 col-sm-12">
+  <div id="slogan" class="data-card blue">
+    <h1><em>"LET'S GET SPORTY!"</em></h1>
 
-  <div class="row">
-    <div class="col-md-6 col-sm-12">
-      <div class="data-card white">
-       <% if @trainer == current_user  %>
-       <h2> Welcome <%= @trainer.name %> </h2>
-       <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
-       <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
-       <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
-       <%=@trainer.bio%>
-       <%=@trainer.rating%>
-       <% else %>
-       <h2> <%= @trainer.name %> </h2>
-       <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
-       <%=@trainer.bio%>
-       <%=@trainer.rating%>
-       <% end %>
-     </div>
-   </div>
-   <div class="col-md-6 col-sm-12">
-    <div class="data-card blue">
-      <% cl_image_tag @trainer.photos.first.key, height: 600, width: 800, crop: :fill %>
-    </div>
   </div>
-  <div class="col-md-9 col-sm-12">
-    <div class="data-card blue">
-      <% if @trainer.trainings.present? %>
-      <% @trainer.training_sessions.each do |training_session| %>
-      <%=render "components/schedule", training_session: training_session%>
-      <%end%>
-      <% else %>
-      <h1>No schedule available</h1>
-      <% end %>
-    </div>
-  </div>
-  <div class="col-md-3 col-sm-12">
-    <div class="data-card white">
-      <ul>
-        <li><%=@trainer.name %></li>
-        <li><%=@trainer.gender%></li>
-        <li><%=@trainer.age%></li>
-      </ul>
-      <%=@trainer.rating%> 5 stars
-    </div>
-  </div>
-
- <div class="col-md-12 col-sm-12">
+</div>
+<div class="col-md-9 col-sm-12">
   <div class="data-card blue">
-    <h4>My Classes:</h4>
+    <% if @trainer.trainings.present? %>
+    <% @trainer.training_sessions.each do |training_session| %>
+    <%=render "components/schedule", training_session: training_session%>
+    <%end%>
+    <% else %>
+    <h1>No schedule available</h1>
+    <% end %>
+  </div>
+</div>
+<div class="col-md-3 col-sm-12">
+  <div class="data-card white">
+
+  </div>
+</div>
+
+<div class="col-md-12 col-sm-12">
+  <div class="mb-3 classes-cards">
+    <h4>My Classes</h4>
     <% @trainings.each do |training| %>
-    <%= link_to training_path(training) do %>
-    <%= render "components/trainer-trainings-card", training: training %>
+    <%= link_to training_path(training), class: "card-product-link" do %>
+      <%= render "components/trainer-trainings-card", training: training %>
     <% end %>
     <% end %>
   </div>
@@ -98,7 +105,13 @@
 
 <div class="col-md-6 col-sm-12">
   <div class="data-card blue">
-    <% render "training_sessions/map",  markers: @markers %>
+
+    <div id="map"
+    class="full-screen-map"
+    style="width: 100%; height: 100%;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
   </div>
 </div>
 

@@ -17,10 +17,9 @@ height: 3rem;
 .class-name{
   text-transform: capitalize;
   color: white;
-  background-color: rgba(0, 180, 216, .7);
   display: flex;
   align-items: center;
-
+  background-color: initial;
   padding-left: 10px;
 }
 
@@ -28,7 +27,7 @@ height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(202, 240, 248, .7);
+  background-color: initial;
 
   .time{
     padding-left: 10px;
@@ -36,10 +35,20 @@ height: 3rem;
 
   .location{}
 
-  .book{
-    border-left: solid 1px white;
+  .book a {
     height: 50%;
     padding-left: 10px;
     padding-right: 10px;
+    color: black;
+    background-color: white;
+    color: #3367cb;
+    padding: 10px 15px;
+    transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
+    border: 2px solid #3367cb;
+    &:hover {
+      background-color: #3367cb;
+      color: white;
+      border: 2px solid white;
+    }
   }
 }

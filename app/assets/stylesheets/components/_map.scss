@@ -7,11 +7,18 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-
-#map {
+#map.partial {
   position: fixed;
   top: 0;
   right: 0;
   width: 50%;
   height: 100vh
+}
+
+.full-screen-map {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
