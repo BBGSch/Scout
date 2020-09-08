@@ -1,6 +1,6 @@
 class TrainingsController < ApplicationController
   def index
-    @trainings = Training.all # search(params)
+    @trainings = search(params).sort_by {|a| a.training_sessions.first.time}
     @categories = Training.distinct.pluck(:category)
     @markers = []
     @trainings.each do |t|
@@ -19,13 +19,26 @@ class TrainingsController < ApplicationController
   end
 
   def search(params)
-    return Training.all if params.keys.length == 2
-    sessions = TrainingSession.near(params[:location], 50)
-    trainings = sessions.map{|session| session.training}.uniq
-    if params[:category] != "All"
-      trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}
-    end
-    rating = params[:stars][0]
+   return Training.all if params.keys.length == 2
+   if params[:location] == ""
+     params[:location] = "Amsterdam"
+   end
+   sessions = TrainingSession.near(params[:location], 50)
+
+   if params[:datetime]
+
+    datetime_from_search = DateTime.parse(params[:datetime])
+
+    start_time = datetime_from_search - 2.hours
+    end_time = datetime_from_search + 2.hours
+    sessions = sessions.where(time: start_time..end_time)
+  end
+  trainings = sessions.map{|session| session.training}
+
+  if params[:category] != "All"
+    trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}
+  end
+  rating = params[:stars][0]
     # trainings = trainings.select { |training| training.reviews.map { |review| review.stars >= rating.to_i} }
     trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
   end
@@ -44,11 +57,11 @@ class TrainingsController < ApplicationController
     @trainer = current_user
     @training = Training.new(training_params)
     @training.user = current_user
-      if @training.save
-        redirect_to training_path(@training)
-      else
-        render :new
-      end
+    if @training.save
+      redirect_to training_path(@training)
+    else
+      render :new
+    end
   end
 
   def edit
