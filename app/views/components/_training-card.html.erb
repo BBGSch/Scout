@@ -1,6 +1,6 @@
 
   <div class="card-training">
-    <%= cl_image_tag @training.photos.first.key, height: 600, width: 800, crop: :fill %>
+    <%= cl_image_tag @training.photos.first.key %>
     <div class="card-training-infos">
       <div>
         <h2><%= @training.name %></h2>
@@ -15,7 +15,7 @@
         <button type="button" class="btn btn-warning">
           <%= link_to "remove", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
         </button>
-      <% end %>  
+      <% end %>
 
       <div class="profile-schedule">
         <% if @training.training_sessions.present? %>
@@ -38,21 +38,18 @@
 
         <% end %>
 
-
       </div>
     </div>
 
-    
     </div>
     <div>
-      <%= render "reviews/list", reviews: @reviews %>    
-    </div>  
+      <%= render "reviews/list", reviews: @reviews %>
+    </div>
   </div>
 
 
 
 
-  
-  
 
-  
+
+
