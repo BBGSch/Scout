@@ -5,12 +5,13 @@
 
 
 
+
  <div class="class d-flex justify-content-center">
   <div class="col-md-8 col-sm-12">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item text-center active">
-         <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @trainer.photos.first.key, height: 1000, crop: :fill %>
        </div>
        <div class="carousel-item text-center">
          <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
@@ -53,7 +54,7 @@
    </div>
    <div class="col-md-6 col-sm-12">
     <div class="data-card blue">
-      <% cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% cl_image_tag @trainer.photos.first.key, height: 600, width: 800, crop: :fill %>
     </div>
   </div>
   <div class="col-md-9 col-sm-12">
