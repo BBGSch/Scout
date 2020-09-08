@@ -1,6 +1,18 @@
 
 
 <div class="container">
+
+
+
+   <div class="class d-flex justify-content-center">
+      <div class="col-md-6 col-sm-12">
+        <div class="profile-img class d-flex justify-content-center">
+        <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+        </div>
+        <h1 class="align-center"> <%= @trainer.name %> </h1>
+      </div>
+   </div>
+
   <div class="row">
     <div class="col-md-6 col-sm-12">
       <div class="data-card white">
@@ -21,7 +33,7 @@
    </div>
    <div class="col-md-6 col-sm-12">
     <div class="data-card blue">
-      <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
     </div>
   </div>
   <div class="col-md-9 col-sm-12">
@@ -45,11 +57,7 @@
       <%=@trainer.rating%> 5 stars
     </div>
   </div>
-  <!-- <div class="col-md-3 col-sm-12">
-    <div class="data-card white">
 
-   </div>
- </div> -->
  <div class="col-md-12 col-sm-12">
   <div class="data-card blue">
     <h4>My Classes:</h4>
@@ -69,128 +77,10 @@
 
 <div class="col-md-6 col-sm-12">
   <div class="data-card blue">
-    <%= render "training_sessions/map",  markers: @markers %>
+    <% render "training_sessions/map",  markers: @markers %>
   </div>
 </div>
 
 </div>
 </div>
-
-<!-- <h1>Trainers#show</h1>
-<%= @trainer %>
-<%#= @trainings %>
-<%= @trainer.name %>
-<%= @trainer.gender %>
-<%= @trainer.bio %>
-<%= @trainer.rating %>
-
-<ul>
-  <% @trainings.each do |training| %>
-  <li> <%= training.name %>
-  <%= link_to training.name, training_path(training) %></li>
-<% end %></ul>
--->
-
-
-<div class="profile-column">
-
-
-  <% if @trainer == current_user  %>
-  <div class = "trainer-controls">
-    <h2> Welcome <%= @trainer.name %> </h2>
-    <div class = "trainer-controls-buttons">
-      <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
-      <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
-    </div>
-  </div>
-  <% end %>
-
-
-
-
-    <div class="profile-image">
-      <%= cl_image_tag @trainer.photos.first.key, height: 300, width: 400, crop: :fill %>
-    </div>
-    <div class="profile-headline">
-      <div>
-        <div>
-          <div class="trainer-name">
-           <%=@trainer.name %> <%=@trainer.gender%>, <%=@trainer.age%>
-         </div>
-       </div>
-     </div>
-     <div>
-      <%=@trainer.rating%> 5 stars
-    </div>
-  </div>
-
-
-
-  <% if @trainer.trainings.present? %>
-  <div class="profile-schedule">
-    <% @trainer.training_sessions.each do |training_session| %>
-    <%=render "components/schedule", training_session: training_session%>
-    <%end%>
-  </div>
-  <div class="profile-classes">
-    <h4>My Classes:</h4>
-    <ul>
-      <% @trainings.each do |training| %>
-      <li>
-        <%= link_to training_path(training) do %>
-        <% render "components/trainer-trainings-card", training: training %>
-        <%end%>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <% else %>
-  <h4>Create your first training!</h4>
-  <% end %>
-
-
-
-  <div class="profile-info">
-    <%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.
-    <%=@trainer.bio%>
-  </div>
-  <div class="profile-reviews">
-    <%=@trainer.rating%>
-    <div>
-      <%= render "reviews/list", reviews: @reviews %>
-    </div>
-  </div>
-  <div class="col-md-6" style="margin-top:8%">
-    <div><%= render "training_sessions/map",  markers: @markers %></div>
-  </div>
-</div>
-</div>
-
-
-<!-- <div class="schedule-day-one">
-          <h4>Today</h4>
-          <%= link_to training_session_path(@trainer.training_sessions.first)  do %>
-          <%=render "components/schedule-button", session: @trainer.training_sessions.first%>
-          <%end%>
-        </div>
-        <div class="schedule-day-two">
-          <h4>Tomorrow</h4>
-          <%= link_to training_session_path(@trainer.training_sessions.last)  do %>
-           <%=render "components/schedule-button", session: @trainer.training_sessions.last%>
-           <%end%>
-         </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

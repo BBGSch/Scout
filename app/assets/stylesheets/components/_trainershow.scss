@@ -1,9 +1,20 @@
+.profile-img{
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  img{
+    border-radius: 15px;
+  }
+
+}
+
+
 .data-card {
   border: none;
   padding: 20px 40px;
-  border-radius: 6px;
+  border-radius: 2px;
   margin: 5px;
-  min-height: 330px;
+  min-height: 200px;
   height: 96%;
   box-sizing: border-box;
 }
@@ -17,3 +28,4 @@
   background-color: #3366CC;
   color: white;
 }
+
