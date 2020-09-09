@@ -25,7 +25,7 @@ class TrainingsController < ApplicationController
     end
     sessions = TrainingSession.near(params[:location], 50)
 
-    if params[:datetime] != ""
+    if params[:datetime] && params[:datetime] != ""
 
       datetime_from_search = DateTime.parse(params[:datetime])
 
@@ -35,10 +35,15 @@ class TrainingsController < ApplicationController
     end
     trainings = sessions.map{|session| session.training}.uniq
 
-    if params[:category] != "All"
+    if params[:category] && params[:category] != "All"
       trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}.uniq
     end
-    rating = params[:stars][0]
+
+    if params[:stars]
+      rating = params[:stars][0]
+    else
+      rating = 3
+    end
     # trainings = trainings.select { |training| training.reviews.map { |review| review.stars >= rating.to_i} }
     trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
   end
