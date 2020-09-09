@@ -1,6 +1,9 @@
 class TrainingsController < ApplicationController
   def index
-    @trainings = search(params).sort_by {|a| a.training_sessions.first.time}
+    @trainings = search(params)
+    @trainings = @trainings.select{|t| t.training_sessions.size > 0}.sort_by do |a|
+      a.training_sessions.first.time
+    end
     @categories = Training.distinct.pluck(:category)
     @markers = []
     @trainings.each do |t|
