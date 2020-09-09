@@ -22,6 +22,7 @@ class TrainersController < ApplicationController
     @trainings = @trainer.trainings
     @trainingsessions = @trainer.training_sessions
     @reviews = @trainer.reviews
+
     if @reviews.size > 0
       @average_rating = @reviews.sum(:stars) / @reviews.size
     else

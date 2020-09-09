@@ -31,7 +31,10 @@
           </div>
         </div>
 
-
+      <% elsif @training.user == current_user %>
+        <button type="button" class="btn btn-success">
+          <%= link_to "Cancel Session", training_session_path(@trainingsession), method: :delete %>
+        </button>
 
       <% else %>
         <%= form_tag orders_path do %>

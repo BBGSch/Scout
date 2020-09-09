@@ -2,6 +2,9 @@ class BookingsController < ApplicationController
   def index
     @user = current_user
     @bookings = Booking.all.select { |booking| booking.user == @user }
+    @future_bookings = @bookings.select { |booking| booking.training_session.time > Time.now }
+    @past_bookings = @bookings.select { |booking| booking.training_session.time < Time.now }
+    
     # @booking.status = true
     # if booking.date.to_time > Time.now
     #   booking.status = false
