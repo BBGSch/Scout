@@ -6,14 +6,18 @@
   <div class="search-card-infos">
     <div class="search-card-infos-titles">
       <row><h2><%=trainer.name%></h2><h3> &ensp; <%=trainer.age%>, <%=trainer.gender%></h3></row><br>
-      <row><i class="fas fa-map-marker"></i><h6>&ensp;Trains at&ensp;</h6>
+      <row><i class="fas fa-map-marker"></i><h6>&ensp;Trains at&nbsp;</h6>
         <% locations = [] %>
         <% trainer.training_sessions.each do |session| %>
         <% locations << session.location %>
         <% locations.uniq!%>
         <%end%>
-        <% locations.each do |location| %>
-        <h6> <%=location%></h6>
+        <% locations.each_with_index do |location, i| %>
+        <% if i == locations.length - 1 %>
+          <h6> <%=location%> &nbsp;</h6>
+        <% else %>
+          <h6> <%=location%>, &nbsp;</h6>
+        <%end%>
         <%end%>
          </row>
     </div>

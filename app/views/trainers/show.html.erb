@@ -42,7 +42,7 @@
 </div>
 </div>
 
-<div class="container">
+<div class="container" style="width: 80vw;">
   <div class="row">
     <div class="col-md-6 col-sm-12">
       <div id="<%= @trainer == current_user ? '' : 'bio' %>" class="data-card white">
@@ -105,7 +105,7 @@
 
  <div class="col-md-12 col-sm-12">
   <div class="mb-3 classes-cards">
-    <h4>My Classes</h4>
+    <h4 style="color: white;">My Classes</h4>
     <% @trainings.each do |training| %>
     <%= link_to training_path(training), class: "card-product-link" do %>
     <%= render "components/trainer-trainings-card", training: training %>

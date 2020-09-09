@@ -23,6 +23,7 @@
 @import "components/search-form";
 @import "components/schedule";
 @import "components/simple-calendar";
+@import "components/trainerindex_search";
 
 @import "pages/index";
 @import "pages/home";
@@ -32,7 +33,8 @@
 
 body{
 //background-color: rgba(0, 180, 216,)
-background-color: rgba(202, 240, 248, .2);
+//background-color: rgba(202, 240, 248, .2);
+background-color: rgb(22, 25, 37);
 //background-image: linear-gradient(white);
 //background-color: white;
 display: flex;

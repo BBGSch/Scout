@@ -1,0 +1,82 @@
+  <form class="trainerindex_search_form" action=<%=trainers_path%> method="get">
+    <div>
+    <div class="trainerindex_search_bar">
+      <div class="row">
+        <div class="trainerindex_city_search">
+           <input id="search-location" type="text" placeholder="City" name="location">
+         </div>
+         <div>
+           <div>
+                <button class="btn btn-default dropdown-toggle" type="button"
+                id="category_drop" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                Teaches
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu checkbox-menu allow-focus" aria-labelledby="dropdownMenu1">
+
+                <li >
+                  <label>
+                    <input type="checkbox" id="Crossfit" name="crossfit" value="true"> Crossfit
+                  </label>
+                </li>
+
+                <li >
+                  <label>
+                    <input type="checkbox" id="Calisthenics" name="calisthenics" value="true"> Calisthenics
+                  </label>
+                </li>
+
+                <li>
+                  <label>
+                    <input type="checkbox" id="other" name="other" value="true"> Other
+                  </label>
+                </li>
+
+              </ul>
+            </div>
+
+         </div>
+
+
+
+           <div >
+                <button class="btn btn-default dropdown-toggle" type="button"
+                id="gender_drop" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+                Gender
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu checkbox-menu allow-focus" aria-labelledby="dropdownMenu1">
+
+                <li >
+                  <label>
+                    <input type="checkbox" id="male" name="male" value="true"> Male
+                  </label>
+                </li>
+
+                <li >
+                  <label>
+                    <input type="checkbox" id="female" name="female" value="true"> Female
+                  </label>
+                </li>
+
+                <li >
+                  <label>
+                    <input type="checkbox" id="other" name="other" value="true"> Other
+                  </label>
+                </li>
+
+              </ul>
+            </div>
+
+            <input type="number"  id="minage" name="minage" placeholder="Min Age"/>
+             <input type="number"  id="maxage" name="maxage" placeholder="Max Age"/>
+
+              <button type="submit" id="trainerindex_searchbtn" >Search</button>
+              </div>
+    </div>
+    </div>
+  </form>
+
+<!-- dropdownMenu1 -->
