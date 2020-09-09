@@ -22,6 +22,8 @@ class TrainersController < ApplicationController
     @trainings = @trainer.trainings
     @trainingsessions = @trainer.training_sessions
     @reviews = @trainer.reviews
+    @average_rating = @reviews.exists? ? @reviews.sum(:stars) / @reviews.size : @reviews.sum(:stars) / 1
+
     # @filtered_markers = @trainingsessions.each() do .unique get  unique lat & long
     @markers = @trainingsessions.geocoded.map do |trainingsession|
       {
