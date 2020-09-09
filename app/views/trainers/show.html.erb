@@ -68,7 +68,7 @@
 </div>
 <div class="col-md-9 col-sm-12">
   <div class="data-card blue">
-    <% if @trainer.trainings.present? %>
+    <% if @trainer.training_sessions.present? %>
     <% @trainer.training_sessions.each do |training_session| %>
     <%=render "components/schedule", training_session: training_session%>
     <%end%>
