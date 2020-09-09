@@ -5,7 +5,7 @@
       <div class="data-card white pay">
         <h1>Complete your booking</h1>
         <p>Purchase of <strong><%= @order.training_session.training.name %> <br> on  <%= @order.training_session.time.strftime("%-d %b %Y, %H:%M") %></strong> for <strong><%= humanized_money_with_symbol @order.amount_cents %></strong></p>
-        <p>To confirm your booking, you will be redirected <br> to Stripe</p>
+        <p>To confirm your booking, you will be redirected <strong>to Stripe</strong></p>
         <div class="d-flex" style="justify-content: center">
           <button id="pay" class="btn btn-primary">Pay now</button>
           </div>
