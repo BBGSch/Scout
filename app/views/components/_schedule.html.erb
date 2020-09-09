@@ -9,12 +9,14 @@
     <div class="location">
       <%=training_session.location%>
     </div>
-    <div class="book">
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'training_session_id', training_session.id %>
-        <%= submit_tag 'BOOK', class: 'book' %>
-        <% end %>
-<!--       <%=link_to "BOOK", training_session_bookings_path(training_session), method: :post %>
- -->    </div>
+    <% unless training_session.training.user == current_user %>
+      <div class="book">
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'training_session_id', training_session.id %>
+          <%= submit_tag 'BOOK', class: 'book' %>
+          <% end %>
+  <!--       <%=link_to "BOOK", training_session_bookings_path(training_session), method: :post %>
+   --></div>
+    <% end %>
   </div>
 </div>

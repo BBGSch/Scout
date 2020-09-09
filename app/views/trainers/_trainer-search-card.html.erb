@@ -22,8 +22,21 @@
     </div>
   </div>
   <div class="search-card-stats">
-      <div class="sessions">1234 Sessions held</div>
-      <div class="stars"> 4.5/5 stars</div>
+      <div class="sessions"> <%=trainer.training_sessions.count%> Sessions held</div>
+      <!-- <div class="stars"> <%= trainer.reviews.empty? ? "no reviews" : "#{trainer.reviews.sum(:stars) / trainer.reviews.size} stars" %>  </div> -->
+
+      <div class="stars">
+        <% if trainer.reviews.exists? %>
+          <% 5.times do |num|%>
+            <i class="fa<%= trainer.reviews.sum(:stars) / trainer.reviews.size < (num + 1) ? "r" : "s" %> fa-star text-warning"></i>
+          <% end %>
+        <% else %>
+          <% 5.times do |num|%>
+            <i class="fa<%= trainer.reviews.sum(:stars) / 1 < (num + 1) ? "r" : "s" %> fa-star text-warning"></i>
+          <% end %>
+        <% end %>
+      </div>
+
   </div>
 </div>
 

@@ -90,7 +90,7 @@ class TrainingSessionsController < ApplicationController
         last_sesh = new_sesh.dup
         count += 1
       end
-      flash.notice = " #{last_sesh.training.training_sessions.count} weekly sessions saved"
+      flash.notice = " #{last_sesh.training.training_sessions.count} biweekly sessions saved"
     else
       last_sesh = training_session.dup
       count = 0
@@ -101,7 +101,7 @@ class TrainingSessionsController < ApplicationController
         last_sesh = new_sesh.dup
         count += 1
       end
-      flash.notice = " #{last_sesh.training.training_sessions.count} weekly sessions saved"
+      flash.notice = " #{last_sesh.training.training_sessions.count} monthly sessions saved"
     end
   end
 
