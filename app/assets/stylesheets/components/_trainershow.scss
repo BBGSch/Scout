@@ -24,6 +24,14 @@
 .data-card.white {
   background-color: white;
   color: black;
+  &.pay {
+    height: 350px;
+    width: 350px;
+  }
+  &.order {
+    height: 350px;
+    width: 350px;
+  }
 }
 
 .data-card.blue {

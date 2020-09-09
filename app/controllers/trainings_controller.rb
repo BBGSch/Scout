@@ -48,7 +48,8 @@ class TrainingsController < ApplicationController
       rating = 3
     end
     # trainings = trainings.select { |training| training.reviews.map { |review| review.stars >= rating.to_i} }
-    trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
+    # trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
+    trainings = trainings.select { |training| (training.reviews.sum(:stars) / (training.reviews.size == 0 ? 1 : training.reviews.size)) >= rating.to_i}
   end
 
   def show
