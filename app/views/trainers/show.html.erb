@@ -2,93 +2,110 @@
   <div class="col-md-8 col-sm-12">
 
     <div class="trainer-carousel">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <% @trainer.photos.each_with_index do |photo, i| %>
-        <% if i==0 %>
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% @trainer.photos.each_with_index do |photo, i| %>
+          <% if i==0 %>
           <div class="carousel-item text-center active">
             <%= cl_image_tag photo.key, height: 1000, crop: :fill %>
-         </div>
-         <%else%>
-         <div class="carousel-item text-center">
+          </div>
+          <%else%>
+          <div class="carousel-item text-center">
            <%= cl_image_tag photo.key, height: 1000, crop: :fill  %>
          </div>
          <%end%>
          <%end%>
-     </div>
-     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  </div>
-
-      <h1 class="trainer-bio"> <%= @trainer.name %></h1>
-      <h4 class="trainer-sub-bio">
-        <% if @trainer.female? %>
-          <i class="fas fa-venus"></i>
-        <% elsif @trainer.male? %>
-         <i class="fas fa-mars"></i>
-        <% else %>
-          <%=@trainer.gender%>
-        <% end %>
-          <%=@trainer.age%>
-      </h4>
+       </div>
+       <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
+
+  <h1 class="trainer-bio"> <%= @trainer.name %></h1>
+  <h4 class="trainer-sub-bio">
+    <% if @trainer.female? %>
+    <i class="fas fa-venus"></i>
+    <% elsif @trainer.male? %>
+    <i class="fas fa-mars"></i>
+    <% else %>
+    <%=@trainer.gender%>
+    <% end %>
+    <%=@trainer.age%>
+  </h4>
+</div>
+</div>
 </div>
 
 <div class="container">
-<div class="row">
-  <div class="col-md-6 col-sm-12">
-    <div id="<%= @trainer == current_user ? '' : 'bio' %>" class="data-card white">
-     <% if @trainer == current_user  %>
-     <h3> Welcome <%= @trainer.name %> </h3>
-     <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
-     <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div id="<%= @trainer == current_user ? '' : 'bio' %>" class="data-card white">
+       <% if @trainer == current_user  %>
+       <h3> Welcome <%= @trainer.name %> </h3>
+       <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
+       <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
+       <br>
+       <%=@trainer.bio%>
+       <%=@trainer.rating%>
+       <% else %>
+       <!-- <h2> <%#= @trainer.name %> </h2> -->
+       <%=@trainer.bio%>
+       <%=@trainer.rating%>
+       <% end %>
+     </div>
+   </div>
+   <div class="col-md-6 col-sm-12">
+    <div id="slogan" class="data-card blue">
+      <h1><em>"LET'S GET SPORTY!"</em></h1>
+
+    </div>
+  </div>
+  <div class="col-md-9 col-sm-12">
+    <div class="data-card blue">
+      <% if @trainer.trainings.present? %>
+      <% @trainer.training_sessions.each do |training_session| %>
+      <%=render "components/schedule", training_session: training_session%>
+      <%end%>
+      <% else %>
+      <h1>No schedule available</h1>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-12">
+    <div id="rating" class="data-card white">
+
+
+      <% if @trainer == current_user %>
+        <P>You have taught <%=@trainer.training_sessions.count%> classes with an average rating of</P>
+      <% else %>
+        <p> <%= @trainer.name%> has taught <%=@trainer.training_sessions.count%> classes with an average rating of</p>
+      <% end %>
      <br>
-     <%=@trainer.bio%>
-     <%=@trainer.rating%>
-     <% else %>
-     <!-- <h2> <%#= @trainer.name %> </h2> -->
-     <%=@trainer.bio%>
-     <%=@trainer.rating%>
-     <% end %>
+
+      <div>
+        <% 5.times do |num|%>
+        <i class="fa<%= @average_rating < (num + 1) ? "r" : "s" %> fa-star text-warning"></i>
+        <% end %>
+      </div>
+      <br>
+      <div>
+        <i class="far fa-grin-stars"></i>
+      </div>
    </div>
  </div>
- <div class="col-md-6 col-sm-12">
-  <div id="slogan" class="data-card blue">
-    <h1><em>"LET'S GET SPORTY!"</em></h1>
 
-  </div>
-</div>
-<div class="col-md-9 col-sm-12">
-  <div class="data-card blue">
-    <% if @trainer.trainings.present? %>
-    <% @trainer.training_sessions.each do |training_session| %>
-    <%=render "components/schedule", training_session: training_session%>
-    <%end%>
-    <% else %>
-    <h1>No schedule available</h1>
-    <% end %>
-  </div>
-</div>
-<div class="col-md-3 col-sm-12">
-  <div class="data-card white">
-       <strong><%=@trainer.name%> has taught <%=@trainer.training_sessions.count%> classes.</strong>
-  </div>
-</div>
-
-<div class="col-md-12 col-sm-12">
+ <div class="col-md-12 col-sm-12">
   <div class="mb-3 classes-cards">
     <h4>My Classes</h4>
     <% @trainings.each do |training| %>
     <%= link_to training_path(training), class: "card-product-link" do %>
-      <%= render "components/trainer-trainings-card", training: training %>
+    <%= render "components/trainer-trainings-card", training: training %>
     <% end %>
     <% end %>
   </div>
