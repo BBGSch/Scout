@@ -4,13 +4,17 @@
   </div>
   <div class="class-infos">
     <div class="time">
-      <%=training_session.time.strftime("%H:%M")%>
+      <%=training_session.time.strftime("%H:%M")%> on <%=training_session.time.strftime("%b %e")%>
     </div>
     <div class="location">
       <%=training_session.location%>
     </div>
     <div class="book">
-      <%=link_to "BOOK", training_session_bookings_path(training_session), method: :post %>
-    </div>
+      <%= form_tag orders_path do %>
+        <%= hidden_field_tag 'training_session_id', training_session.id %>
+        <%= submit_tag 'BOOK', class: 'book' %>
+        <% end %>
+<!--       <%=link_to "BOOK", training_session_bookings_path(training_session), method: :post %>
+ -->    </div>
   </div>
 </div>
