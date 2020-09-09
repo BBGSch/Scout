@@ -1,15 +1,20 @@
-<div class="container justify-content-center">
-  <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @order.training_session.training.photos.first.key, height: 300, width: 400, crop: :fill %></div>
-    <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>SESSION</strong> <%= @order.training_session.training.name %> <%= @order.training_session.time %>[<%= @order.training_session_sku %>]</li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount_cents %></li>
+<div class="container">
+  <div class="row py-4" style="justify-content: center">
+    <!-- <div class="col-md-3"><%= cl_image_tag @order.training_session.training.photos.first.key, height: 300, width: 400, crop: :fill %></div> -->
+    <div class="col-md-6 col-sm-12">
+      <div class="data-card white order">
+        <h1>You're booked!</h1>
+        <p>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></p>
+        <ul class="list-unstyled">
+          <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date.strftime("%-d %b %Y") %></li>
+          <li><strong>SESSION</strong> <%= @order.training_session.training.name %> <%= @order.training_session.time.strftime("%-d %b %Y") %>[<%= @order.training_session_sku %>]</li>
+          <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount_cents %></li>
         </li>
       </ul>
+      <div class="d-flex" style="justify-content: center">
+      <button id="order" class="btn btn-primary">My Bookings</button>
+    </div>
     </div>
   </div>
 </div>
-
+</div>
