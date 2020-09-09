@@ -1,16 +1,28 @@
-<%= link_to training_path(booking.training) do %>
-<div id="card-product" class="card-product">
-  <%= cl_image_tag booking.training.photos.first.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-product-infos">
+<%= link_to training_path(booking.training), class: "card-product-link" do %>
+<div class="card-product" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(<%= cl_image_path booking.training.photos.first.key, height: 300, width: 800, crop: :fill %>)">
+
+  <div class="booking-info">
 
     <h2><%= booking.training.name.capitalize %></h2>
-    <p> <%= booking.training_session.time.strftime("%A, %b %d") %> </p>
-    <p> <%= booking.training_session.location %></p>
-      <% if booking.status == true%>
-        <p> <i class="far fa-check-circle text-success" style="font-size: 20px;"></i></p>
-      <% else %>
-        <p><i class="far fa-times-circle text-warning" style="font-size: 20px;"></i></p>
-      <% end %>
+    <div class="training-time badge badge-primary">
+        <h2><%= booking.training_session.time.strftime("%b %e, %l:%M %p") %></h2>
+    </div>
+    <div class="training-location badge badge-primary">
+     <h2><%= booking.training_session.location %></h2>
+    </div>
+
+
+
+
+    <%# if booking.status == true %>
+    <!-- <p> <i class="far fa-check-circle text-success" style="font-size: 20px;"></i></p> -->
+    <%# else %>
+    <!-- <p><i class="far fa-times-circle text-warning" style="font-size: 20px;"></i></p> -->
+    <%# end %>
+
+
+
+
   </div>
 </div>
 <% end %>

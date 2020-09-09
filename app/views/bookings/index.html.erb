@@ -17,7 +17,7 @@
     <div class="col-md-6">
       <div class="tab-content">
         <div id="upcoming" class="tab-pane fade in active show">
-          <div class="cards-grid">
+          <div class="cards-grid booking">
             <% @bookings.each do |booking| %>
             <%=render "components/booking-card", booking: booking %>
             <%end%>
@@ -25,7 +25,7 @@
         </div>
 
         <div id="past" class="tab-pane fade">
-          <div class="cards-grid">
+          <div class="cards-grid booking">
             <% @bookings.each do |booking| %>
             <%=render "components/booking-card", booking: booking %>
             <%end%>

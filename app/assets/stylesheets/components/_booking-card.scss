@@ -9,6 +9,10 @@
   transform: scale(1);
 }
 
+.card-product .badge.badge-primary {
+  text-shadow: none;
+}
+
 .card-product .card-product-infos h2 {
     text-transform: capitalize;
     color: white;
@@ -17,6 +21,7 @@
     text-align: center;
     width: 100%;
     display: block;
+    word-spacing: 10px;
 }
 
 .card-product-link:hover {
@@ -60,4 +65,66 @@
   grid-auto-rows: 150px;
   grid-gap: 15px;
   top: 0;
+  &.booking {
+    grid-template-columns: 1fr;
+  }
 }
+
+.booking-info {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  word-spacing: 5px;
+  text-shadow: 0px 0px 5px rgba(1, 1, 1, 0.5);
+  text-transform: capitalize;
+}
+
+.training-time {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  text-shadow: 0px 0px 5px rgba(1, 1, 1, 1);
+}
+
+.training-location {
+  position: absolute;
+  bottom: 60px;
+  left: 5px;
+  text-shadow: 0px 0px 5px rgba(1, 1, 1, 1);
+}
+
+// .card-dynamic {
+
+// }
+
+// .card-dynamic:hover {
+//   text-decoration: none;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
