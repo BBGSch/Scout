@@ -277,19 +277,19 @@ puts bookingfuture18.id
 
 # old bookings
 # user5
-bookingold1 = Booking.create(user_id: 5, training_session_id: 7, status: true)
-bookingold2 = Booking.create(user_id: 5, training_session_id: 8, status: true)
-bookingold3 = Booking.create(user_id: 5, training_session_id: 9, status: true)
-bookingold4 = Booking.create(user_id: 5, training_session_id: 10, status: true)
-bookingold5 = Booking.create(user_id: 5, training_session_id: 11, status: true)
-bookingold6 = Booking.create(user_id: 5, training_session_id: 12, status: true)
+bookingold1 = Booking.create(user_id: 5, training_session_id: 22, status: true)
+bookingold2 = Booking.create(user_id: 5, training_session_id: 23, status: true)
+bookingold3 = Booking.create(user_id: 5, training_session_id: 24, status: true)
+bookingold4 = Booking.create(user_id: 5, training_session_id: 25, status: true)
+bookingold5 = Booking.create(user_id: 5, training_session_id: 26, status: true)
+bookingold6 = Booking.create(user_id: 5, training_session_id: 27, status: true)
 # user6
-bookingold7 = Booking.create(user_id: 6, training_session_id: 7, status: true)
-bookingold8 = Booking.create(user_id: 6, training_session_id: 8, status: true)
-bookingold9 = Booking.create(user_id: 6, training_session_id: 9, status: true)
-bookingold10 = Booking.create(user_id: 6, training_session_id: 10, status: true)
-bookingold11 = Booking.create(user_id: 6, training_session_id: 11, status: true)
-bookingold12 = Booking.create(user_id: 6, training_session_id: 12, status: true)
+bookingold7 = Booking.create(user_id: 6, training_session_id: 22, status: true)
+bookingold8 = Booking.create(user_id: 6, training_session_id: 23, status: true)
+bookingold9 = Booking.create(user_id: 6, training_session_id: 24, status: true)
+bookingold10 = Booking.create(user_id: 6, training_session_id: 25, status: true)
+bookingold11 = Booking.create(user_id: 6, training_session_id: 26, status: true)
+bookingold12 = Booking.create(user_id: 6, training_session_id: 27, status: true)
 # calisthenics
 bookingold13 = Booking.create(user_id: 7, training_session_id: 7, status: true)
 bookingold14 = Booking.create(user_id: 8, training_session_id: 7, status: true)
