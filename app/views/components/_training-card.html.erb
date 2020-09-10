@@ -43,6 +43,11 @@
  <div class="col-md-4 col-sm-12">
   <div class="data-card white">
     <div class="d-flex align-items-space-between flex-column" style="height: 100%;">
+      <% if @training.user == current_user %>
+        <button type="button" class="btn btn-warning">
+          <%= link_to "Remove This Training", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
+        </button>
+      <% end %>
       <div style="margin-bottom: 30px;"><%=@training.description%></div>
     <div>
    <i class="fas fa-stopwatch"></i> <%= @training.duration.strftime( "%kh:%Mm" ) %> <br>
