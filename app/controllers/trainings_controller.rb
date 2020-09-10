@@ -19,6 +19,18 @@ class TrainingsController < ApplicationController
       end
     end
     @markers = @markers.uniq
+
+
+    @training_sessions = TrainingSession.all.sort_by { |session| session.time }
+  end
+
+
+  def session_search(params)
+    return TrainingSession.all if params.keys.length == 2
+    if params[:location] == ""
+     params[:location] = "Amsterdam"
+
+   end
   end
 
   def search(params)

@@ -1,0 +1,29 @@
+  <form class="trainingindex_search_form" action=<%=trainings_path%> method="get">
+    <div class="trainingindex_search_bar">
+      <div class="row">
+        <div class="trainingindex_city_search">
+         <input id="trainingindex_search-location" type="text" placeholder="City" name="location">
+       </div>
+
+        <select name="stars" >
+          <% 3.times do |num|%>
+          <option><%= num + 3 %> star</option>
+          <% end %>
+        </select>
+
+     <select name="category">
+      <option>All</option>
+      <% categories.each do |category|%>
+      <option><%= category %></option>
+      <% end %>
+    </select>
+      <input type="datetime-local" name="datetime" class="form-control search-slt">
+    <small class="form-text text-muted"></small>
+
+    <button type="submit" id="trainingindex_searchbtn" style="width: 50%;" >Search</button>
+  </div>
+</div>
+</form>
+
+
+

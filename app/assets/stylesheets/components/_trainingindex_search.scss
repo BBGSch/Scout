@@ -1,11 +1,14 @@
-.trainerindex_search_form{
+.trainingindex_search_form{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: din-condensed;
+  width: 60%;
+  margin-bottom: 30px;
+  margin-left: 30px;
 
-  .trainerindex_search_form  input[type=text], input[type=number], input[type=radio]{
+  .trainingindex_search_form  input[type=text], input[type="datetime-local"], select{
   //border-radius: 0px;
   border: none;
   //background: initial;
@@ -20,6 +23,7 @@
   width: 100px;
   height: 3.5rem;
   margin: 1px;
+  width: 49%;
 
    &:hover{
     color: black;
@@ -29,14 +33,14 @@
   }
 }
 
-.trainerindex_search_bar .row{
+.trainingindex_search_bar .row{
   border: solid 2px rgba(202, 240, 248, 1);
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   background-color: white;
 }
 
-#search-location{
+#trainingindex_search-location{
    background-color: white;
    height: 3.5rem;
    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -45,26 +49,11 @@
    border-radius: 5px 0px 0px 5px;
    background: initial;
    color: black;
+   width: 100%;
 }
 
-#gender_drop, #category_drop{
-  background-color: white;
-  height: 3.5rem;
-  //box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  background-color: rgba(255, 255, 255, .6);
-  left: 0;
-  padding-left: 10px;
-  background-color: white;
-  border: solid 1px white;
 
-  &:hover{
-    color: black;
-    transform: scale(1.1);
-    background-color: rgba(202, 240, 248, 1);
-  }
-}
-
-#trainerindex_searchbtn{
+#trainingindex_searchbtn{
    height: 3.5rem;
     padding-left: 10px;
     padding-right: 10px;
@@ -74,6 +63,7 @@
     padding: 10px 15px;
     transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
     border-radius: 0px 5px 5px 0px;
+    width: 100%
     &:hover {
       background-color: rgb(22, 25, 37);
       color: rgba(202, 240, 248, 1);
@@ -83,11 +73,11 @@
 }
 
 
-.trainerindex_city_search{
+.trainingindex_city_search{
   padding: 0;
   padding-right: 3px;
   color: black;
-  width: 100px;
+  width: 100%;
   background-color: white;
 
   &:hover{
