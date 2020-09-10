@@ -1,0 +1,29 @@
+<%= link_to training_session_path(session), class: "card-product-link" do %>
+<div class="card-product" style="background-size: cover; background-repeat: no-repeat; background-position: center center; 
+background-image: url(<%= cl_image_path session.training.photos.first.key, height: 300, width: 800, crop: :fill %>)">
+
+  <div class="booking-info">
+
+    <h2><%= session.training.name.capitalize %></h2>
+    <div class="training-time badge badge-primary">
+        <h2><%= session.time.strftime("%b %e, %l:%M %p") %></h2>
+    </div>
+    <div class="training-location badge badge-primary">
+     <h2><%= session.location %></h2>
+    </div>
+
+
+
+
+    <%# if booking.status == true %>
+    <!-- <p> <i class="far fa-check-circle text-success" style="font-size: 20px;"></i></p> -->
+    <%# else %>
+    <!-- <p><i class="far fa-times-circle text-warning" style="font-size: 20px;"></i></p> -->
+    <%# end %>
+
+
+
+
+  </div>
+</div>
+<% end %>

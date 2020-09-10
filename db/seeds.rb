@@ -218,18 +218,18 @@ puts yoga_session3.id
 
 # old sessions
 calisthenics_sessionLY1 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 8, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 8, 20, 0, 0, "+02:00") )
 calisthenics_sessionLY2 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 15, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 15, 20, 0, 0, "+02:00") )
 calisthenics_sessionLY3 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 22, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 22, 20, 0, 0, "+02:00") )
 
 crossfit_sessionLY1 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 8, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 8, 20, 0, 0, "+02:00") )
 crossfit_sessionLY2 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 15, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 15, 20, 0, 0, "+02:00") )
 crossfit_sessionLY3 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 22, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 22, 20, 0, 0, "+02:00") )
 
 # new bookings
 
