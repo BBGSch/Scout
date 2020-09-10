@@ -1,10 +1,26 @@
-
-<div class="d-flex justify-content-between">
+<div class="col-12">
+<div class="d-flex justify-content-between booking-show-banner">
   <div>
-    <h1>You're booked!</h1>
+    <% if @booking.training_session.time > Time.now %>
+      <h1>You're booked!</h1>
+    <% elsif @booking.training_session.time < Time.now %>
+     <h1>You attended <%=@booking.training_session.training.name %></h1>
+     <%end%>
     </div>
     <div>
-  <%= render "reviews/form", booking: @booking %>
-      <div > <%= link_to 'Cancel', @booking, method: :delete, class: "btn btn-warning" %></div>
+        <% if @booking.training_session.time > Time.now %>
+      <div> <%= link_to 'Cancel', @booking, method: :delete, class: "btn btn-warning" %></div>
+      <% if current_user.orders.where(training_session: @booking.training_session).any? %>
+        <div> <%=  link_to 'View Order', order_path(current_user.orders.find(training_session: @booking.training_session)), method: :get, class: "btn btn-warning"  %></div>
+        <% end %>
+    <% elsif @booking.training_session.time < Time.now %>
+     <%= render "reviews/form", booking: @booking %>
+     <%end%>
     </div>
-</div>
+  </div>
+  </div>
+
+
+
+
+

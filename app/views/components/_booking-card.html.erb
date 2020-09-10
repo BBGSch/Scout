@@ -1,4 +1,4 @@
-<%= link_to training_path(booking.training), class: "card-product-link" do %>
+<%= link_to booking_path(booking), class: "card-product-link" do %>
 <div class="card-product" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(<%= cl_image_path booking.training.photos.first.key, height: 300, width: 800, crop: :fill %>)">
 
   <div class="booking-info">

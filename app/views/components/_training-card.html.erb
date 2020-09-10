@@ -12,12 +12,12 @@
         </div>
   </div>
   <div class="col-md-8 col-sm-12">
-    <div class="data-card white">
+    <div class="data-card blue">
       <div class="training-slideshow">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <% @training.photos.each_with_index do |photo, i| %>
-        <% if i==0 %>
+        <% if i==@training.photos.length-1 %>
           <div class="carousel-item text-center active">
             <%= cl_image_tag photo.key, height: 1000, crop: :fill %>
          </div>
@@ -43,10 +43,10 @@
  <div class="col-md-4 col-sm-12">
   <div class="data-card white">
     <div class="d-flex align-items-space-between flex-column" style="height: 100%;">
-      <div><%=@training.description%></div>
+      <div style="margin-bottom: 30px;"><%=@training.description%></div>
     <div>
    <i class="fas fa-stopwatch"></i> <%= @training.duration.strftime( "%kh:%Mm" ) %> <br>
-   <i class="fas fa-euro-sign"></i> <%= @training.price %> <br>
+   <i class="fas fa-euro-sign"></i> <%= @training.price %> <br> <br><br>
 
     <strong><%=@training.user.name%> has taught <%=@training.name%> <%=@training.training_sessions.count%> times.</strong>
     </div>
@@ -58,11 +58,16 @@
   <div class="data-card blue">
     <h1>Upcoming Sessions:</h1>
     <% if @training.training_sessions.present? %>
+    <% if current_user == @training.user %>
+      <%= link_to "Schedule More Sessions", new_training_training_session_path(@training), class:"btn btn-primary" %>
+    <%end%>
     <% @training.training_sessions.each do |training_session| %>
     <%=render "components/schedule", training_session: training_session%>
     <%end%>
     <% else %>
-    <h1>No schedule available</h1>
+    <% if current_user == @training.user %>
+      <%= link_to "schedule first session", new_training_training_session_path(@training), class:"btn btn-primary" %>
+      <%end%>
     <% end %>
   </div>
 </div>
