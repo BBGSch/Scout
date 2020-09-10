@@ -25,28 +25,28 @@ class TrainingsController < ApplicationController
     return Training.all if params.keys.length == 2
     if params[:location] == ""
      params[:location] = "Amsterdam"
-    end
-    sessions = TrainingSession.near(params[:location], 50)
+   end
+   sessions = TrainingSession.near(params[:location], 50)
 
-    if params[:datetime] && params[:datetime] != ""
+   if params[:datetime] && params[:datetime] != ""
 
-      datetime_from_search = DateTime.parse(params[:datetime])
+    datetime_from_search = DateTime.parse(params[:datetime])
 
-      start_time = datetime_from_search - 2.hours
-      end_time = datetime_from_search + 2.hours
-      sessions = sessions.where(time: start_time..end_time)
-    end
-    trainings = sessions.map{|session| session.training}.uniq
+    start_time = datetime_from_search - 2.hours
+    end_time = datetime_from_search + 2.hours
+    sessions = sessions.where(time: start_time..end_time)
+  end
+  trainings = sessions.map{|session| session.training}.uniq
 
-    if params[:category] && params[:category] != "All"
-      trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}.uniq
-    end
+  if params[:category] && params[:category] != "All"
+    trainings = trainings.select { |training| training.category.downcase.include?(params[:category].downcase)}.uniq
+  end
 
-    if params[:stars]
-      rating = params[:stars][0]
-    else
-      rating = 3
-    end
+  if params[:stars]
+    rating = params[:stars][0]
+  else
+    rating = 3
+  end
     # trainings = trainings.select { |training| training.reviews.map { |review| review.stars >= rating.to_i} }
     # trainings = trainings.select { |training| (training.reviews.sum(:stars) / training.reviews.size) >= rating.to_i}
     trainings = trainings.select { |training| (training.reviews.sum(:stars) / (training.reviews.size == 0 ? 1 : training.reviews.size)) >= rating.to_i}
@@ -55,6 +55,15 @@ class TrainingsController < ApplicationController
   def show
     @training = Training.find(params[:id])
     @reviews = @training.reviews
+    @markers = []
+    @session = @training.training_sessions
+    @session.geocoded.map do |trainingsession|
+      @markers.push({
+        lat: trainingsession.latitude,
+        lng: trainingsession.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { trainingsession: trainingsession })
+      })
+    end
   end
 
   def new
