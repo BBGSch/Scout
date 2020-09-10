@@ -1,6 +1,8 @@
 <div class="container" style="margin-bottom: 40px;">
   <div class="row flex-column">
+    <div class="booking-title">
     <h2>Bookings</h2>
+    </div>
 
     <ul class="nav nav-tabs mb-4">
       <li class="active mr-4">
@@ -14,7 +16,7 @@
 
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6 col-sm-12 pl-0">
       <div class="tab-content">
         <div id="upcoming" class="tab-pane fade in active show">
 
@@ -37,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6 col-sm-12 pr-0">
       <div class="row">
         <div class="col-md-12">
           <%= month_calendar events: @bookings do |date, bookings| %>
