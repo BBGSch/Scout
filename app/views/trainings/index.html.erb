@@ -17,14 +17,14 @@
           <% if @trainings.size == 0 %>
           <h5>No training sessions available</h5>
           <% end %>
-          <% @trainings.each do |training| %>
-            <%= link_to training_path(training) do %>
+          <% TrainingSession.all.each do |training_session| %>
+            <%= link_to training_path(training_session.training) do %>
               <div class="card-product">
-                <%= cl_image_tag training.photos.first.key, height: 600, width: 800, crop: :fill %>
+                <%= cl_image_tag training_session.training.photos.first.key, height: 600, width: 800, crop: :fill %>
                 <div class="card-product-infos">
-                  <h2><%= training.name %> <%= training.training_sessions.first.time.strftime("%b %e, %l:%M %p, %G") %> <%= training.price %>€</h2>
-                  <p><%= training.description %></p>
-                  <p><%= training.duration.strftime("%H:%M") %></p>
+                  <h2><%= training_session.training.name %> <%= training_session.time.strftime("%b %e, %l:%M %p, %G") %> <%= training_session.training.price %>€</h2>
+                  <p><%= training_session.training.description %></p>
+                  <p><%= training_session.training.duration.strftime("%H:%M") %></p>
                 </div>
               </div>
             <% end %>
