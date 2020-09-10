@@ -12,6 +12,9 @@
         <a class="dropdown-item" href="/trainers">Find Trainer</a>
         <a class="dropdown-item" href="/trainings">Find Training</a>
         <% if user_signed_in? %>
+          <%= link_to "My profile", trainer_path(current_user), class: "dropdown-item" %>
+        <% end %>
+        <% if user_signed_in? %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           <% else %>
           <%= link_to "Log in", new_user_session_path, class: "dropdown-item"  %>
@@ -27,6 +30,3 @@
       <%end%>
     </div>
   </header>
-
-
-
