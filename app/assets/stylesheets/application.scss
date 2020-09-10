@@ -25,6 +25,7 @@
 @import "components/simple-calendar";
 @import "components/trainerindex_search";
 @import "components/trainingindex_search";
+@import "components/booking_show_banner";
 //@import "components/home_banner";
 
 @import "pages/index";
@@ -44,4 +45,5 @@ flex-direction: column;
 justify-content: space-between;
 min-height: calc(100vh + 200px);
 padding-top: 100px;
+color: white;
 }

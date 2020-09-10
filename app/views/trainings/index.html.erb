@@ -20,16 +20,12 @@
           <h5>No training sessions available</h5>
           <% end %>
           <% @training_sessions.each do |training_session| %>
-            <%= link_to training_path(training_session.training) do %>
-            <%= render "components/training_session_card", training_session: training_session %>
-              <!-- <div class="card-product">
-                <%= cl_image_tag training_session.training.photos.first.key, height: 600, width: 800, crop: :fill %>
-                <div class="card-product-infos">
-                  <h2><%= training_session.training.name %> <%= training_session.time.strftime("%b %e, %l:%M %p, %G") %> <%= training_session.training.price %>€</h2>
-                  <p><%= training_session.training.description %></p>
-                  <p><%= training_session.training.duration.strftime("%H:%M") %></p>
-                </div> -->
 
+            <%= link_to training_path(training_session.training) do %>
+            <div style="padding-right: 50px; padding-bottom: 15px;" >
+
+            <%= render "components/training_session_card", training_session: training_session %>
+            </div>
             <% end %>
           <% end %>
           </div>

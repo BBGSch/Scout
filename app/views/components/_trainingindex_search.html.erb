@@ -6,12 +6,14 @@
        </div>
 
         <select name="stars" >
+          <option value="" selected disabled hidden>Min. Rating</option>
           <% 3.times do |num|%>
           <option><%= num + 3 %> star</option>
           <% end %>
         </select>
 
      <select name="category">
+      <option value="" selected disabled hidden>Workout Category</option>
       <option>All</option>
       <% categories.each do |category|%>
       <option><%= category %></option>
