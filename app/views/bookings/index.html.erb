@@ -1,60 +1,131 @@
-<div class="container" style="margin-bottom: 40px;">
-  <div class="row flex-column">
-    <div class="booking-title">
-    <h2>Bookings</h2>
+
+<% if @user.trainer %>
+
+  <div class="container" style="margin-bottom: 40px;">
+    <div class="row flex-column">
+      <h2>Training sessions</h2>
+
+
+      <ul class="nav nav-tabs mb-4">
+        <li class="active mr-4">
+          <a data-toggle="tab" href="#upcoming"><h5>Upcoming</h5></a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#past"><h5>Past</h5></a>
+        </li>
+      </ul>
     </div>
 
-    <ul class="nav nav-tabs mb-4">
-      <li class="active mr-4">
-        <a data-toggle="tab" href="#upcoming"><h5>Upcoming</h5></a>
-      </li>
-      <li>
-        <a data-toggle="tab" href="#past"><h5>Past</h5></a>
-      </li>
-    </ul>
-  </div>
 
+    <div class="row">
+      <div class="col-md-6">
+        <div class="tab-content">
+          <div id="upcoming" class="tab-pane fade in active show">
 
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 pl-0">
-      <div class="tab-content">
-        <div id="upcoming" class="tab-pane fade in active show">
+            <div class="cards-grid">
+              <% @future_sessions.each do |sesh| %>
 
-          <div class="cards-grid">
-            <% @future_bookings.each do |booking| %>
+              <%=render "components/session_card", session: sesh %>
+              <%end%>
+            </div>
+          </div>
 
-            <%=render "components/booking-card", booking: booking %>
-            <%end%>
+          <div id="past" class="tab-pane fade">
+
+            <div class="cards-grid">
+              <% @past_sessions.each do |sesh| %>
+
+              <%=render "components/session_card", session: sesh %>
+              <%end%>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <%= month_calendar events: @own_sessions do |date, sessions| %>
+            <%= date.strftime("%e") %>
 
-        <div id="past" class="tab-pane fade">
+            <% sessions.each do |session| %>
+            <%= link_to training_session_path(session), class: "calendar-booking-link" do %>
+            <%= session.time.strftime("%H:%M") %>
+            <%= session.training.name %>
+            <% end %>
+            <% end %>
 
-          <div class="cards-grid">
-            <% @past_bookings.each do |booking| %>
-
-            <%=render "components/booking-card", booking: booking %>
-            <%end%>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-6 col-sm-12 pr-0">
-      <div class="row">
-        <div class="col-md-12">
-          <%= month_calendar events: @bookings do |date, bookings| %>
-          <%= date.strftime("%e") %>
 
-          <% bookings.each do |booking| %>
-          <%= link_to booking_path(booking), class: "calendar-booking-link" do %>
-          <%= booking.start_time.strftime("%H:%M") %>
-          <%= booking.training.name %>
-          <% end %>
-          <% end %>
+  </div>
 
-          <% end %>
+
+
+<% else %>
+
+
+  <div class="container" style="margin-bottom: 40px;">
+    <div class="row flex-column">
+      <h2>Bookings</h2>
+
+      <ul class="nav nav-tabs mb-4">
+        <li class="active mr-4">
+          <a data-toggle="tab" href="#upcoming"><h5>Upcoming</h5></a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#past"><h5>Past</h5></a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="tab-content">
+          <div id="upcoming" class="tab-pane fade in active show">
+
+            <div class="cards-grid">
+              <% @future_bookings.each do |booking| %>
+
+              <%=render "components/booking-card", booking: booking %>
+              <%end%>
+            </div>
+          </div>
+
+          <div id="past" class="tab-pane fade">
+
+            <div class="cards-grid">
+              <% @past_bookings.each do |booking| %>
+
+              <%=render "components/booking-card", booking: booking %>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <%= month_calendar events: @bookings do |date, bookings| %>
+            <%= date.strftime("%e") %>
+
+            <% bookings.each do |booking| %>
+            <%= link_to booking_path(booking), class: "calendar-booking-link" do %>
+            <%= booking.start_time.strftime("%H:%M") %>
+            <%= booking.training.name %>
+            <% end %>
+            <% end %>
+
+            <% end %>
+          </div>
+
+
         </div>
       </div>
     </div>
   </div>
-</div>
+
+<% end %>

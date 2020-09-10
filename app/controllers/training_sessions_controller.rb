@@ -4,7 +4,7 @@ class TrainingSessionsController < ApplicationController
     @trainingsessions = TrainingSession.all
     @training = Training.find(params[:training_id])
 
-     @markers = @trainingsessions.geocoded.map do |trainingsession|
+    @markers = @trainingsessions.geocoded.map do |trainingsession|
       {
         lat: trainingsession.latitude,
         lng: trainingsession.longitude,

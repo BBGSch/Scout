@@ -1,27 +1,59 @@
-<div class="container container-new">
-  <div class="row">
-    <div class="col-6">
+    <div class="container" style="margin-bottom: 40px;">
+      <div class="row flex-column">
+        <h2>Training sessions</h2>
+
+        <ul class="nav nav-tabs mb-4">
+          <li class="active mr-4">
+            <a data-toggle="tab" href="#upcoming"><h5>Upcoming</h5></a>
+          </li>
+          <li>
+            <a data-toggle="tab" href="#past"><h5>Past</h5></a>
+          </li>
+        </ul>
+      </div>
 
 
+      <div class="row">
+        <div class="col-md-6">
+          <div class="tab-content">
+            <div id="upcoming" class="tab-pane fade in active show">
 
-    <h1>TrainingSessions#index</h1>
-    <p>Find me in app/views/training_sessions/index.html.erb</p>
+              <div class="cards-grid">
+                <% @future_sessions.each do |sesh| %>
 
-    <% @trainingsessions.each do |sesh| %>
+                <%=render "components/booking-card", booking: sesh %>
+                <%end%>
+              </div>
+            </div>
 
+            <div id="past" class="tab-pane fade">
 
+              <div class="cards-grid">
+                <% @past_sessions.each do |sesh| %>
 
-      <h3><%= link_to sesh.training.name, training_session_path(sesh) %></h3>
-      <h5><%= sesh.time %></h5>
-      <h5><%= sesh.location %></h5>
-      <h5><%= sesh.capacity %></h5>
+                <%=render "components/booking-card", booking: sesh %>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-12">
+              <%= month_calendar events: @own_sessions do |date, sessions| %>
+              <%= date.strftime("%e") %>
 
-    <% end %>
+              <% sessions.each do |session| %>
+              <%= link_to training_session_path(session), class: "calendar-booking-link" do %>
+              <%= session.time.strftime("%H:%M") %>
+              <%= session.training.name %>
+              <% end %>
+              <% end %>
 
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <!-- Uncomment in order to enable the map -->
-  <div><%#= render "map",  markers: @markers %></div>
-</div>
-
 

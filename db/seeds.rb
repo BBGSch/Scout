@@ -218,18 +218,18 @@ puts yoga_session3.id
 
 # old sessions
 calisthenics_sessionLY1 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 8, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 8, 20, 0, 0, "+02:00") )
 calisthenics_sessionLY2 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 15, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 15, 20, 0, 0, "+02:00") )
 calisthenics_sessionLY3 = TrainingSession.create(training_id: 1, price: calisthenics1.price, capacity: 10, location: "Westerpark", 
-  time: DateTime.new(2019, 12, 22, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 22, 20, 0, 0, "+02:00") )
 
 crossfit_sessionLY1 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 8, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 8, 20, 0, 0, "+02:00") )
 crossfit_sessionLY2 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 15, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 15, 20, 0, 0, "+02:00") )
 crossfit_sessionLY3 = TrainingSession.create(training_id: 2, price: crossfit1.price, capacity: 6, location: "Vondelpark", 
-  time: DateTime.new(2019, 10, 22, 20, 0, 0, "+02:00") )
+  time: DateTime.new(2020, 8, 22, 20, 0, 0, "+02:00") )
 
 # new bookings
 
@@ -277,19 +277,19 @@ puts bookingfuture18.id
 
 # old bookings
 # user5
-bookingold1 = Booking.create(user_id: 5, training_session_id: 7, status: true)
-bookingold2 = Booking.create(user_id: 5, training_session_id: 8, status: true)
-bookingold3 = Booking.create(user_id: 5, training_session_id: 9, status: true)
-bookingold4 = Booking.create(user_id: 5, training_session_id: 10, status: true)
-bookingold5 = Booking.create(user_id: 5, training_session_id: 11, status: true)
-bookingold6 = Booking.create(user_id: 5, training_session_id: 12, status: true)
+bookingold1 = Booking.create(user_id: 5, training_session_id: 22, status: true)
+bookingold2 = Booking.create(user_id: 5, training_session_id: 23, status: true)
+bookingold3 = Booking.create(user_id: 5, training_session_id: 24, status: true)
+bookingold4 = Booking.create(user_id: 5, training_session_id: 25, status: true)
+bookingold5 = Booking.create(user_id: 5, training_session_id: 26, status: true)
+bookingold6 = Booking.create(user_id: 5, training_session_id: 27, status: true)
 # user6
-bookingold7 = Booking.create(user_id: 6, training_session_id: 7, status: true)
-bookingold8 = Booking.create(user_id: 6, training_session_id: 8, status: true)
-bookingold9 = Booking.create(user_id: 6, training_session_id: 9, status: true)
-bookingold10 = Booking.create(user_id: 6, training_session_id: 10, status: true)
-bookingold11 = Booking.create(user_id: 6, training_session_id: 11, status: true)
-bookingold12 = Booking.create(user_id: 6, training_session_id: 12, status: true)
+bookingold7 = Booking.create(user_id: 6, training_session_id: 22, status: true)
+bookingold8 = Booking.create(user_id: 6, training_session_id: 23, status: true)
+bookingold9 = Booking.create(user_id: 6, training_session_id: 24, status: true)
+bookingold10 = Booking.create(user_id: 6, training_session_id: 25, status: true)
+bookingold11 = Booking.create(user_id: 6, training_session_id: 26, status: true)
+bookingold12 = Booking.create(user_id: 6, training_session_id: 27, status: true)
 # calisthenics
 bookingold13 = Booking.create(user_id: 7, training_session_id: 7, status: true)
 bookingold14 = Booking.create(user_id: 8, training_session_id: 7, status: true)
