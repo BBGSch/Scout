@@ -72,6 +72,7 @@
     <% if @trainer.training_sessions.present? %>
     <% @trainer.training_sessions.each_with_index do |training_session, i| %>
     <%=render "components/schedule", training_session: training_session%>
+    <% break if i > 12 %>
     <%end%>
     <% else %>
     <h1>No schedule available</h1>
