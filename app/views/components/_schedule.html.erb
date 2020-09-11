@@ -9,7 +9,13 @@
     <div class="location">
       <%=training_session.location%>
     </div>
-    <% unless training_session.training.user == current_user %>
+    <% if training_session.training.user == current_user %>
+      <div>
+        <div><button type="button" class="btn btn-primary">
+            <%= link_to "View Session", training_session_path(training_session), style: "color: white"%>
+          </button></div>
+        </div>
+    <% else %>
       <div class="book">
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'training_session_id', training_session.id %>

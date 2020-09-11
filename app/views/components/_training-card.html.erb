@@ -77,18 +77,33 @@
 
    <div class="col-md-4 col-sm-12">
     <div class="data-card white">
-      <div class="d-flex align-items-space-between flex-column" style="height: 100%;">
+      <div class="d-flex flex-column justify-content-between " style="height: 100%;">
+        <div>
         <% if @training.user == current_user %>
           <button type="button" class="btn btn-warning">
-            <%= link_to "Remove This Training", training_path(@training), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Remove This Training", training_path(@training), method: :delete, data: { confirm: "Are you sure?" }, style: "color: white" %>
           </button>
+          <br><br>
         <% end %>
-        <div style="margin-bottom: 30px;"><%=@training.description%></div>
+        <div style="margin-bottom: 30px;">
+               <i class="fas fa-stopwatch"></i> <%= @training.duration.strftime( "%kh:%Mm" ) %> <br>
+     <i class="fas fa-euro-sign"></i> <%= @training.price %> <br>
+          <%=@training.description%></div>
+          </div>
       <div>
-     <i class="fas fa-stopwatch"></i> <%= @training.duration.strftime( "%kh:%Mm" ) %> <br>
-     <i class="fas fa-euro-sign"></i> <%= @training.price %> <br> <br><br>
 
       <strong><%=@training.user.name%> has taught <%=@training.name%> <%=@training.training_sessions.count%> times.</strong>
+      <div class="stars">
+        <% if @training.reviews.exists? %>
+          <% 5.times do |num|%>
+            <i class="fa<%= @training.reviews.sum(:stars) / @training.reviews.size < (num + 1) ? "r" : "s" %> fa-star text-warning"></i>
+          <% end %>
+        <% else %>
+          <% 5.times do |num|%>
+            <i class="fa<%= @training.reviews.sum(:stars) / 1 < (num + 1) ? "r" : "s" %> fa-star text-warning"></i>
+          <% end %>
+        <% end %>
+      </div>
       </div>
 
         </div>

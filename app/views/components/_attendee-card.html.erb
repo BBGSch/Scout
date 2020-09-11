@@ -1,5 +1,5 @@
 <div id="card-attendee" class="card-attendee">
-  <%= cl_image_tag booking.user.photos.first.key, height: 40, width: 40, crop: :fill, class: "avatar" %>
+  <%= cl_image_tag booking.user.photos.first.key, height: 40, width: 40, crop: :fill, class: "avatar", style: "margin-left: 8px;" %>
   <div class="card-attendee-infos">
     <h2><%= booking.user.name %></h2>
       <% if booking.status == true%>
