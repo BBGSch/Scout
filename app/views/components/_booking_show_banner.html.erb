@@ -9,14 +9,13 @@
     </div>
     <div>
         <% if @booking.training_session.time > Time.now %>
-      <div> <%= link_to 'Cancel', @booking, method: :delete, class: "btn btn-warning" %></div>
-        <br>
-      <% if current_user.orders.where(training_session: @booking.training_session).any? %>
-        <div> <%=  link_to 'View Order', order_path(current_user.orders.where(training_session: @booking.training_session).first), method: :get, class: "btn btn-warning"  %></div>
-        <% end %>
-    <% elsif @booking.training_session.time < Time.now %>
-     <%= render "reviews/form", booking: @booking %>
-     <%end%>
+          <div> <%= link_to 'Cancel', @booking, method: :delete, class: "btn btn-warning" %></div>
+            <% if current_user.orders.where(training_session: @booking.training_session).any? %>
+              <div> <%=  link_to 'View Order', order_path(current_user.orders.where(training_session: @booking.training_session).first), method: :get, class: "btn btn-warning"  %></div>
+            <% end %>
+        <% elsif @booking.training_session.time < Time.now %>
+          <%= render "reviews/form", booking: @booking %>
+        <%end%>
     </div>
   </div>
   </div>
