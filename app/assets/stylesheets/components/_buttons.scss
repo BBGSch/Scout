@@ -30,3 +30,21 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
   //background-image: linear-gradient(rgba(255,255,255,.4), rgba(50,50,50,.1))
 }
+
+
+.scout-button{
+    height: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: black;
+    background-color: white;
+    color: #3367cb;
+    padding: 10px 15px;
+    transition: background-color 200ms ease, color 200ms ease, border 200ms ease;
+    border: 2px solid #3367cb;
+    &:hover {
+      background-color: #3367cb;
+      color: white;
+      border: 2px solid white;
+    }
+}

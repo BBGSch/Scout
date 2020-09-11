@@ -11,9 +11,9 @@
     </div>
     <% if training_session.training.user == current_user %>
       <div>
-        <div><button type="button" class="btn btn-primary">
-            <%= link_to "View Session", training_session_path(training_session), style: "color: white"%>
-          </button></div>
+        <div>
+            <%= link_to "View Session", training_session_path(training_session), class: "scout-button"%>
+          </div>
         </div>
     <% else %>
       <div class="book">
