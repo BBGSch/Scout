@@ -5,12 +5,16 @@
   display: flex;
   align-items: center;
   color: black;
+  width: 185px;
+  height: 150px;
+  margin: 10px;
+
 }
 
 .card-attendee h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin: 0;  padding: 5px;
 }
 
 .card-attendee p {

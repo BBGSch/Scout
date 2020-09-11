@@ -1,54 +1,82 @@
-<div class="container container-new">
+<div class="container">
+
+<% if @trainingsession.training.user == current_user%>
+
+
   <div class="row">
-    <div class="col-6">
 
-      <h3><%= @training.name %></h3>
-      <h5><%= @trainingsession.time.strftime("%A, %b %d %k:%M") %></h5>
-      <h5><%= @trainingsession.location %></h5>
-      <h5>Price: <%= humanized_money_with_symbol(@trainingsession.price) %></h5>
-      <h5><%= @trainingsession.capacity %> people </h5>
-
-
-      <% if @training.user == current_user && @trainingsession.bookings.exists? %>
-
-       <button type="button" class="btn btn-success">
-          <%= link_to "Cancel Session", training_session_path(@trainingsession), method: :delete %>
-        </button>
-
-        <h3> Attendees </h3>
-
-        <div class="row">
-          <div class="col-md-6">
-            <div class="tab-content">
-              <div id="upcoming" class="tab-pane fade in active show">
-                <div class="cards-grid">
-                  <% @trainingsession.bookings.each do |booking| %>
-                    <%=render "components/attendee-card", booking: booking %>
-                    <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      <% elsif @training.user == current_user %>
-        <button type="button" class="btn btn-success">
-          <%= link_to "Cancel Session", training_session_path(@trainingsession), method: :delete %>
-        </button>
-
-      <% else %>
-        <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'training_session_id', @trainingsession.id %>
-        <%= submit_tag 'Complete my Booking', class: 'btn btn-primary' %>
-        <% end %>
-      <% end %>
-
-
+  <div class="col-12" style="height: 100px;">
+    <div class="data-card white">
+      <div class="d-flex justify-content-between">
+        <div><h1>You have <%=@trainingsession.bookings.count%> attendees for this session. <%= @trainingsession.capacity - @trainingsession.bookings.count%> spaces available. </h1></div>
+        <div><button type="button" class="btn btn-warning">
+            <%= link_to "Cancel Session", training_session_path(@trainingsession), method: :delete, style: "color: white" %>
+          </button></div>
+      </div>
     </div>
   </div>
-  <!-- <div> -->
-    <%#= render "reviews/list", reviews: @trainingsession.training.reviews %>
-  <!-- </div> -->
+
+<% end %>
+
+
+  <div class="col-12">
+    <div class="data-card white training-pic" style="background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(<%= cl_image_path @trainingsession.training.photos.first.key, height: 600, width: 800, crop: :fill %>)">
+      <%=link_to training_path(@trainingsession.training) do %>
+      <h1><%= @trainingsession.training.name.capitalize %></h1>
+     <% end %>
+      <h4 style="color: white; text-shadow: 2px 2px black;"><%=@trainingsession.time.strftime(" %H : %M  %B %e, %Y")%></h4>
+        <div class="training-trainer-avatar">
+          <%= link_to trainer_path(@trainingsession.training.user) do %>
+          <p><strong>by <%=@trainingsession.training.user.name %></strong></p>
+          <%= cl_image_tag @trainingsession.training.user.photos.first.key, height: 1000, crop: :fill %>
+          <%end%>
+          </div>
+        </div>
+  </div>
+
+
+<% if @trainingsession.training.user == current_user && @trainingsession.bookings.count > 1%>
+
+
+    <div class="col-12">
+    <div class="data-card blue">
+            <h1>Attendees: </h1>
+    <div class="row d-flex justify-center">
+    <% @trainingsession.bookings.each do |booking| %>
+          <%=render "components/attendee-card", booking: booking%>
+    <% end %>
+    </div>
+  </div>
+  </div>
+
+<% end %>
+
+<div class="col-md-6 col-sm-12">
+  <div class="data-card blue">
+
+    <div id="map"
+    class="full-screen-map"
+    style="width: 100%; height: 100%;max-width:530px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  </div>
 </div>
 
+ <div class="col-md-6 col-sm-12">
+  <div class="data-card white">
+    <div class="d-flex flex-column justify-content-between " style="height: 100%;">
+      <div><%=@trainingsession.training.description%></div>
+    <div>
+   <i class="fas fa-stopwatch"></i> <%= @trainingsession.training.duration.strftime( "%kh:%Mm" ) %> <br>
+   <i class="fas fa-euro-sign"></i> <%= @trainingsession.price %> <br>
+   <i class="fas fa-map-marker"></i> <%= @trainingsession.location %>
+    </div>
+
+      </div>
+  </div>
+</div>
+
+</div>
+</div>
 
