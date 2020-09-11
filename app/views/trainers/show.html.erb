@@ -48,9 +48,9 @@
       <div id="<%= @trainer == current_user ? '' : 'bio' %>" class="data-card white">
        <% if @trainer == current_user  %>
        <h3> Welcome <%= @trainer.name %> </h3>
-       <%= link_to "Edit training", edit_trainer_path(@trainer), class:"btn btn-primary" %>
-       <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"btn btn-primary" %>
-       <br>
+       <%= link_to "Edit training", edit_trainer_path(@trainer), class:"scout-button" %>
+       <%= link_to "Create new training", new_trainer_training_path(@trainer), class:"scout-button" %>
+       <br><br>
        <%=@trainer.bio%>
        <%=@trainer.rating%>
        <% else %>

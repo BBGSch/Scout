@@ -114,7 +114,9 @@
       <h1>Upcoming Sessions:</h1>
       <% if @training.training_sessions.present? %>
       <% if current_user == @training.user %>
-        <%= link_to "Schedule More Sessions", new_training_training_session_path(@training), class:"btn btn-primary" %>
+        <%= link_to "Schedule More Sessions", new_training_training_session_path(@training), class:"scout-button" %>
+        <br>
+        <br>
       <%end%>
       <% @training.training_sessions.each do |training_session| %>
       <%=render "components/schedule", training_session: training_session%>

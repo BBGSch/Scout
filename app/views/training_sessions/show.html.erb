@@ -8,7 +8,8 @@
   <div class="col-12" style="height: 100px;">
     <div class="data-card white">
       <div class="d-flex justify-content-between">
-        <div><h1>You have <%=@trainingsession.bookings.count%> attendees for this session. <%= @trainingsession.capacity - @trainingsession.bookings.count%> spaces available. </h1></div>
+        <% spaces = @trainingsession.capacity - @trainingsession.bookings.count%>
+        <div><h1>You have <%=@trainingsession.bookings.count%> attendees for this session. <%= spaces > -1 ? spaces: 0%> spaces available. </h1></div>
         <div><button type="button" class="btn btn-warning">
             <%= link_to "Cancel Session", training_session_path(@trainingsession), method: :delete, style: "color: white" %>
           </button></div>

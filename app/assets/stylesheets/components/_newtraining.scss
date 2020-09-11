@@ -1,12 +1,15 @@
 .form-training {
   margin-top: 50px;
   margin-bottom: 50px;
+
+  a {color: white}
 }
 
 .form-training input:not([type="submit"]):not([type="file"]),
 .form-training textarea, .form-training time select, .form-training select {
   background-color: transparent;
   border-radius: 10px;
+  color: white;
   &::placeholder {
     color: rgba(1,1,1,0.1)
   }
